@@ -1,0 +1,42 @@
+Panagram is a string where you have used each alpahabet atleast once.
+
+bool isPanagram(string str){
+
+//Your code here
+int absi[26];
+for(int j=0;j<26;j++)
+{
+    absi[j]=0;
+}
+for(int i=0;i!=str.length();i++)
+{
+   if(isupper(str[i]))
+   {
+       str[i]=tolower(str[i]);
+       absi[str[i]-'a']++;
+   }
+   else
+   {
+       absi[str[i]-'a']++;
+   }
+}
+int count=0;
+for(int i=0;i<26;i++)
+{
+  if(absi[i]>=1)
+  {
+     //cout<<a
+     count++; 
+  }
+ // cout<<absi[i]<<" ";
+}
+//cout<<count;
+if(count==26)
+{
+   return 1; 
+}
+else
+{
+    return 0;
+}
+}
