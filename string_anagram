@@ -1,0 +1,32 @@
+->An anagram of a string is another string that contains the same characters, only the order of characters can be different. For example, “act” and “tac” are an anagram of each other.
+-> We have used the concept of hashing over here.
+->CODE:
+bool isAnagram(string c, string d){
+    
+    int hr[26]={0};
+    int count=0;
+    for(int i=0;i<c.length();i++)
+    {
+        hr[c[i]-'a']++;
+    }
+    for(int i=0;i<d.length();i++)
+    {
+        hr[d[i]-'a']--;
+    }
+    for(int i=0;i<26;i++)
+    {
+        if(hr[i]==0)
+        {
+            count++;
+        }
+    }
+   // cout<<count;
+    if(count==26)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
