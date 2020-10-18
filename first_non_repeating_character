@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+const int CHAR= 256;
+void check(string str)
+{
+    
+    int count[CHAR]={0};
+    for(int i=0;i<str.length();i++)
+    {
+        count[str[i]]++;
+    }
+    int f=0;
+    for(int i=0;i<str.length();i++)
+    {
+        if(count[str[i]]==1)
+        {
+            cout<<str[i];
+            f=1;
+            break;
+        }
+    }
+    if(f==0)
+    {
+        cout<<"-1";
+    }
+}
+   
+int main() {
+	//code
+	int t,l;
+	cin>>t;
+	while(t--)
+	{
+	    string s;
+	    cin>>l;
+	    cin>>s;
+	   
+	    check(s);
+	    cout<<"\n";
+	}
+	return 0;
+}
