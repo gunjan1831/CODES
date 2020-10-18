@@ -1,0 +1,37 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+void check(string k)
+{
+    int count[26]={0};int f=0;
+    for(int i=0;i<k.length();i++)
+    {
+        count[k[i]-'a']++;
+        if(count[k[i]-'a']>1)
+        {
+            cout<<k[i];
+            f=1;
+            break;
+        }
+        
+    }
+    if(f==0)
+    {
+        cout<<"-1";
+    }
+   
+}
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    string s;
+	    cin>>s;
+	    check(s);
+	    cout<<"\n";
+	}
+	return 0;
+}
