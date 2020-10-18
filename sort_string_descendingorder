@@ -1,0 +1,37 @@
+CODE 1:
+#include <bits/stdc++.h> 
+using namespace std; 
+  
+void descOrder(string s) 
+{ 
+    sort(s.begin(), s.end(), greater<char>()); 
+} 
+  
+int main() 
+{ 
+    string s = "geeksforgeeks"; 
+    descOrder(s); // function call 
+    return 0; 
+}
+
+CODE 2:
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    string s;
+	    cin>>s;
+	    sort(s.begin(),s.end());
+	   reverse(s.begin(),s.end());
+	    cout<<s<<"\n";
+	    
+	}
+	return 0;
+}
