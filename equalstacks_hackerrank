@@ -1,0 +1,65 @@
+Question::You have three stacks of cylinders where each cylinder has the same diameter, but they may vary in height. You can change the height of a stack by removing and discarding its topmost cylinder any number of times.
+
+Find the maximum possible height of the stacks such that all of the stacks are exactly the same height. This means you must remove zero or more cylinders from the top of zero or more of the three stacks until they're all the same height, then print the height. The removals must be performed in such a way as to maximize the height.
+
+Note: An empty stack is still a stack.
+
+Input Format
+
+The first line contains three space-separated integers, , , and , describing the respective number of cylinders in stacks , , and . The subsequent lines describe the respective heights of each cylinder in a stack from top to bottom:
+
+The second line contains  space-separated integers describing the cylinder heights in stack . The first element is the top of the stack.
+The third line contains  space-separated integers describing the cylinder heights in stack . The first element is the top of the stack.
+The fourth line contains  space-separated integers describing the cylinder heights in stack . The first element is the top of the stack.
+Constraints
+
+Output Format
+
+Print a single integer denoting the maximum height at which all stacks will be of equal height.
+
+Sample Input
+
+5 3 4
+3 2 1 1 1
+4 3 2
+1 1 4 1
+
+
+Sample Output
+
+5
+
+
+Code:
+
+int equalStacks(vector<int> h1, vector<int> h2, vector<int> h3) {
+    
+    if(h1.size()==0||h2.size()==0||h3.size()==0)
+        return 0;
+    
+    reverse(h1.begin(),h1.end());
+    reverse(h2.begin(),h2.end());
+    reverse(h3.begin(),h3.end());
+    
+    int n1=h1.size()-1;
+    int n2=h2.size()-1;
+    int n3=h3.size()-1;
+    
+    for(int i = 1; i < h1.size(); i++) 
+    {
+        h1[i] += h1[i - 1];
+    }
+    for(int i = 1; i < h2.size(); i++) h2[i] += h2[i - 1];
+    for(int i = 1; i < h3.size(); i++) h3[i] += h3[i - 1];
+    
+    while(h1[n1] != h2[n2] || h1[n1] != h3[n3]) {
+       
+        if(h1[n1] > h2[n2]) n1--;
+        if(h1[n1] > h3[n3]) n1--;
+        if(h2[n2] > h3[n3]) n2--;
+        if(h1[n1] < h2[n2]) n2--;
+        if(h1[n1] < h3[n3]) n3--;
+        if(h2[n2] < h3[n3]) n3--;
+    }
+    return h1[n1];
+}
