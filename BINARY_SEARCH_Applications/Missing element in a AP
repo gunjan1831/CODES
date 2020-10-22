@@ -1,0 +1,21 @@
+ int findMissing(int arr[], int n) {
+if(n==2)
+return (arr[0]+arr[1])/2;
+int d=min(arr[1]-arr[0],arr[2]-arr[1]);
+int left=0,right=n-1;
+int mid,ans;
+int An;
+while(left<=right)
+{
+mid=left+(right-left)/2;
+An=arr[0]+(mid)*d;
+if(arr[mid]!=An)
+{
+ans=mid;
+right=mid-1;
+}
+else
+left=mid+1;
+}
+return arr[0]+(ans*d);
+}
