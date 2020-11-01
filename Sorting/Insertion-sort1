@@ -1,0 +1,36 @@
+Sample Input
+
+5
+2 4 6 8 3
+Sample Output
+
+2 4 6 8 8 
+2 4 6 6 8 
+2 4 4 6 8 
+2 3 4 6 8 
+
+void insertionSort1(int n, vector<int> arr) {
+for(int i=1;i<n;i++)
+{
+    int key=arr[i];
+    int j=i-1;
+    while(j>=0&&arr[j]>key)
+    {
+        arr[j+1]=arr[j];
+        for(int i=0;i<n;i++)
+        {
+            cout<<arr[i]<<" ";
+        }
+        cout<<"\n";
+        j--;
+    }
+    arr[j+1]=key;
+    
+   
+}
+for(int i=0;i<n;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+
+}
