@@ -1,0 +1,13 @@
+Node * deleteTail(Node *head)
+{
+    //Your Code here
+    
+    Node *p=head;
+    while(p->next->next!=NULL)
+    {
+        p=p->next;
+    }
+    int d= p->next->data;
+    p->next=NULL;
+    return head;
+}
