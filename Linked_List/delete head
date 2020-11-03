@@ -1,0 +1,10 @@
+Node * deleteHead(Node *head)
+{
+    //Your code here
+    
+    Node *p=head;
+    p=p->next;
+    head->next=NULL;
+    head=p;
+    return head;
+}
