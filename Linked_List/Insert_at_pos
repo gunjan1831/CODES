@@ -1,0 +1,36 @@
+int getLength(Node * head)
+{
+    if(head==NULL)
+    return 0;
+    return 1+getLength(head->next);
+}
+
+void insertAtPosition(Node *head, int pos, int data)
+{
+    if(pos>getLength(head))
+    return;
+    else if(pos==getLength(head))
+    {
+        while(head->next)
+        {
+            head=head->next;
+            
+        }
+        head->next= new Node(data);
+        return;
+    }
+    
+    Node *temp=head;
+    int curr=1;
+    while(curr<pos)
+    {
+        curr++;
+        temp=temp->next;
+    }
+    
+    Node *temp_next=temp->next;
+    
+    temp->next=new Node(data);
+    temp=temp->next;
+    temp->next=temp_next;
+}
