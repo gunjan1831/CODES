@@ -1,0 +1,42 @@
+int getcount(Node *head)
+{
+    Node *p=head;
+    if(p==NULL)  //if p becomes NULL return 0
+    {
+        return 0;
+    }
+    return getcount(head->next)+1;  // return count after counting current node
+}
+
+
+bool isSorted(Node * head)
+{
+    
+    int flag=0,flag1=0;
+    int size=getcount(head); 
+    
+    //Your code here
+    if (head == NULL) 
+        return true; 
+  
+    // Traverse the list till last node and return 
+    // false if a node is smaller than or equal 
+    // its next. 
+    for (Node *t=head; t->next != NULL; t=t->next) 
+       if (t->data >= t->next->data)   // >=, instead of >
+            {
+                flag++;
+            }
+//in above loop, even if the list is perfectly non-increasing, value of flag will be atmost size-1
+    for (Node *q=head; q->next != NULL; q=q->next) 
+       if (q->data <= q->next->data) 
+            {
+                flag1++;
+            }
+//in above loop, even if the list is perfectly non-decreasing,value of flag1 will be atmost size-1
+            if(flag1==size-1||flag==size-1)  //check for both flag and flag1
+            return true;
+            else
+            return false;
+    
+}
