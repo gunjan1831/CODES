@@ -1,0 +1,9 @@
+Recursion is used :
+ void display(Node *root)
+ {
+ if(root)
+ {
+display(root->next);
+cout<<root->data;
+}
+}
