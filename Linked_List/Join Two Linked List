@@ -1,0 +1,12 @@
+Node * joinTheLists(Node * head1, Node * head2)
+{
+    //Your code here
+    Node *p=head1;
+    Node *q=head2;
+    while(p->next!=NULL)
+    {
+        p=p->next;
+    }
+    p->next=q;
+    return head1;
+}
