@@ -1,0 +1,10 @@
+int getMiddle(Node *head)
+{
+   Node *mid=head,*temp=head;
+   while(mid!=NULL &&mid->next!=NULL)
+   {
+       mid=mid->next->next;
+       temp=temp->next;
+   }
+   return (temp->data);
+}
