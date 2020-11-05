@@ -1,0 +1,18 @@
+vector<int> displayList(Node *head)
+{
+   //Your code here
+   vector<int> k;
+   Node *p=head;
+   
+   /*if(head==NULL)
+   {
+       return ;
+   }*/
+   
+   k.push_back(p->data);
+   for(p=head->next;p!=head;p=p->next)
+   {
+       k.push_back(p->data);
+   }
+   return k;
+}
