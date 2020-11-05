@@ -1,0 +1,70 @@
+struct Node
+{
+    int data;
+    struct Node* next;
+    
+    Node(int x){
+        data = x;
+        next = NULL;
+    }
+    
+};
+*/
+
+/*You are required to complete this method*/
+
+/* Function to get the middle of the linked list*/
+/*K will always be in range */
+
+int getsize(Node *k)
+{
+    if(k==NULL)
+    {
+        return 0;
+    }
+    return getsize(k->next)+1;
+}
+
+void removes(Node *head)
+{
+    while(head!=NULL)
+    {
+        Node *temp=head->next;
+        delete head;
+        head=temp;
+    }
+}
+Node* deleteK(Node *head,int K)
+{
+  //Your code here
+  
+  Node *p=head;
+  if(K==0||head==NULL)
+  {
+      return head;
+  }
+  if(K==1)
+  {
+      removes(head);
+      return NULL;
+  }
+  
+  int s=getsize(head);
+  
+  for(int i=1;i<=s&&p->next!=NULL;)
+  {
+      if((i+1)%K==0)
+      {
+          Node *temp=p->next->next;
+          delete(p->next);
+          p->next=temp;
+          i++;
+      }
+      else
+      {
+          p=p->next;
+          i++;
+      }
+  }
+  return head;
+}
