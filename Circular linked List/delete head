@@ -1,0 +1,22 @@
+****vvvvimpo******
+Please set the original head's next to NULL before deleting. Do not forget!
+
+
+
+Node * deleteHead(Node *head)
+{
+   //Your code here
+   Node *p=head;
+   while(p->next!=head)
+   {
+       p=p->next;
+   }
+   //Node *temp=p->next;
+   head=p->next->next;
+   Node *temp=p->next;
+   temp->next=NULL;
+   p->next=head;
+   delete(temp);
+  
+   return head;
+}
