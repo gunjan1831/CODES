@@ -1,0 +1,22 @@
+
+Node *insertInTail(Node * head, int data)
+{
+    //Your code here
+    Node *temp=new Node(data);
+    Node *p=head;
+    
+    if(head==NULL)
+    {
+        temp->next=temp;
+        head=temp;
+    }
+    
+    while(p->next!=head)
+    {
+        p=p->next;
+    }
+    p->next=temp;
+    temp->next=head;
+    return head;
+    
+}
