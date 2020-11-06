@@ -1,0 +1,10 @@
+Node *insertInHead(Node * head, int data)
+{
+    //Your code here
+    Node *temp=new Node(data);
+    head->prev=temp;
+    temp->next=head;
+    head=temp;
+    return head;
+    
+}
