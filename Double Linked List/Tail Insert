@@ -1,0 +1,13 @@
+Node *insertInTail(Node * head, int data)
+{
+   //Your code here
+   Node *temp=new Node(data);
+   Node *p=head;
+   while(p->next!=NULL)
+   {
+       p=p->next;
+   }
+   temp->prev=p;
+   p->next=temp;
+   return head;
+}
