@@ -1,0 +1,44 @@
+int  getsize(Node *head)
+{
+    if(head==NULL)
+    {
+        return 0;
+    }
+    return getsize(head->next)+1;
+}
+void addNode(Node *head, int pos, int data)
+{
+   // Your code here
+   Node *p=head;
+   Node *curr=head;
+   Node *temp=new Node(data);
+   
+   int s=getsize(head);
+   
+   
+  
+   if(pos==s-1)
+   {
+       Node *p=head;
+       while(p->next!=NULL)
+       {
+           p=p->next;
+       }
+       temp->prev=p;
+       p->next=temp;
+   }
+   else
+   {
+       int i=0;
+       while(i<pos)
+       {
+          // p=curr;
+           curr=curr->next;
+           i++;
+       }
+       temp->next=curr->next;
+       temp->prev=curr;
+       temp->next->prev=temp;
+       curr->next=temp;
+   }
+}
