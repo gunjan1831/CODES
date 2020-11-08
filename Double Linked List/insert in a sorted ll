@@ -1,0 +1,57 @@
+int getsize(Node  *head)
+{
+    if(head==NULL)
+    {
+        return 0;
+    }
+    return getsize(head->next)+1;
+}
+Node* sortedInsert(Node * head, int x)
+{
+        // Code here
+        //Node *p=head;
+    Node *curr=head;
+        
+    Node *temp=new Node;
+    temp->data=x;
+    temp->prev=NULL;
+    temp->next=NULL;
+    
+    
+    if(head->data>=x)
+    {
+        head->prev=temp;
+        temp->next=head;
+        temp->prev=NULL;
+        head=temp;
+        return head;
+    }
+    
+    // You need to stop one node before the greater node.
+    while(curr->next!=NULL && curr->next->data<temp->data)
+    {
+        curr=curr->next;
+    }
+    if(curr->next==NULL)
+    {
+        curr->next=temp;
+        temp->prev=curr;
+    }
+    else
+    {
+        // You placed this statement after "curr->next = temp".
+        // Note that once you update curr->next = temp, you basically loose a reference
+        // of the node that was originally placed after curr.
+        // Do a dry-run of your code and the updated code on this example:
+        // 1->2->4->5, insert 3.
+        // You will be able to understand the differnce better after that.
+        temp->next=curr->next; 
+        
+        curr->next=temp;
+        temp->prev=curr;
+        curr->next->next->prev=temp;
+        
+    }
+
+    return head;
+}
