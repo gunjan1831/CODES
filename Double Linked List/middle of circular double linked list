@@ -1,0 +1,14 @@
+int findMiddle(Node * head)
+{
+   //Your code here
+   Node *p=head;
+   Node *q=head;
+   
+   while(p->next!=head&&q->next!=head)
+   {
+       p=p->next;
+       q=q->next->next;
+   }
+   
+   return p->data;
+}
