@@ -1,0 +1,14 @@
+vector<int> displayList(Node *head)
+{
+    vector<int>k;
+    
+    Node *p=head;
+    while(p->next!=head)
+    {
+        k.push_back(p->data);
+        p=p->next;
+    }
+    k.push_back(p->data);
+    return k;
+}
+   
