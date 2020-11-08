@@ -1,0 +1,28 @@
+1. solution
+
+void deleteNode(Node *node)
+{
+   // Your code here
+   *node=*(node->next);
+}
+
+
+2. solution
+
+
+void deleteNode(Node *node)
+{
+   // Your code here
+   Node *p =node;
+while(p->next!=NULL){
+p->data=p->next->data;
+p=p->next;
+}
+
+p=node;
+while(p->next->next!=NULL){
+p=p->next;
+}
+p->next=NULL;
+}
+
