@@ -1,0 +1,28 @@
+void linkdelete(struct Node  *head, int M, int N)
+{
+     Node *p=head;
+    while(p){
+    for(int i=1;i<M && p!=NULL;i++) ///we need to check if p is NULL or not . its if it reaches end,corner case.
+    {
+        p=p->next;
+    }
+    if(p==NULL) if NULL or reaches end return as it is .
+     return;
+    for(int j=1;j<=N;j++){
+        if(!p->next) // !=p->next==p->next==NULL
+        break;
+        p->next=p->next->next;
+    }
+     p = p->next; // it should go till last of the loop 
+   
+    }
+}
+
+Dry run this test case 
+
+8
+2 1 
+1 2 3 4 5 6 7 8
+
+output 
+1 2 4 5 7 8
