@@ -1,0 +1,33 @@
+1.string checkFibonacci(int N){
+        // code here 
+        int a=1,b=1,c=0;
+        int flag=0;
+        while(c<N){
+            a=b;
+            b=c;
+            c=a+b;
+            if(c==N){
+                flag=1;
+            }
+        }
+        if(N==0 || N==1){
+            return "Yes";
+        }
+        else if(flag==1){
+            return "Yes";
+        }
+        return "No";
+    }
+    
+    
+2.
+string checkFibonacci(int n){
+    int k1 = 5*n*n+4, k2 = 5*n*n-4;
+    int sq1 = sqrt(k1), sq2 = sqrt(k2);
+    if(sq1*sq1 == k1 || sq2*sq2 == k2)
+    return "Yes";
+    return "No";
+    }
+        
+        
+        
