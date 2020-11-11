@@ -1,0 +1,15 @@
+string firstAlphabet(string S)
+	{
+	    // Your code goes here
+	    string g="";
+	    g=S[0];
+	    for(int i=1;i<S.length();i++)
+	    {
+	        char ch=S[i];
+	        if(ch==' ')  ////For space checking we use only ' ' and not " "
+	        {
+	            g+=S[i+1];
+	        }
+	    }
+	    return g;
+	}
