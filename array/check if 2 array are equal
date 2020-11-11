@@ -1,0 +1,22 @@
+bool check(vector<ll> arr, vector<ll> brr, int n) {
+    //code here
+    unordered_map<int,int> mp;
+    int count=0;
+    //unordered_map<int,int> mp1;
+    for(int i=0;i<arr.size();i++)
+    {
+        mp[arr[i]]++;
+    }
+    for(int j=0;j<arr.size();j++)
+    {
+        mp[brr[j]]--;
+    }
+    for(auto i:mp)
+    {
+        if(i.second!=0)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
