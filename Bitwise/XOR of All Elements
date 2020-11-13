@@ -1,0 +1,16 @@
+vector<int> getXor(vector<int> A, int N)
+    {
+        // Write your Code here
+        int k=0;
+        vector<int> ans;
+        for(int i=0;i<N;i++)
+        {
+           k=k^A[i];
+          
+        }
+        for(int j=0;j<N;j++)
+        {
+            ans.push_back(k^A[j]);
+        }
+        return ans;
+    }
