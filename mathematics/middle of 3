@@ -1,0 +1,5 @@
+int middle(int A, int B, int C){
+        //code here//Position this line where user code will be pasted.
+        int a=A>B&&A<C?A:B<C&&B>A||B>C&&B<A?B:C;
+        return a;
+    }
