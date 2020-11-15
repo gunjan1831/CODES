@@ -1,0 +1,24 @@
+int stackMiddle(int n, stack<int> st){
+    
+    if(n%2!=0)
+    {
+        int i=0;
+        while(i!=n/2)
+        {
+            st.pop();
+            i++;
+            
+        }
+        return st.top();
+    }
+    else
+    {
+        int j=0;
+        while(j!=(n/2))
+        {
+            st.pop();
+            j++;
+        }
+        return st.top();
+    }
+    
