@@ -1,0 +1,44 @@
+void insert(stack<int> &s,int x)
+{
+    //Your code 
+    s.push(x);
+}
+
+void remove(stack<int> &s)
+{
+    
+    //Your code here
+    s.pop();
+}
+
+void headOf_Stack(stack<int> &s)
+{
+    int x=s.top();//Your code here
+    cout<<x<<" "<<endl; 
+}
+
+bool find(stack<int> s, int val)
+{
+    bool exists=false;
+    
+    while(!s.empty())
+    {
+        if(s.top()==val)
+        {
+            exists=true;
+            break;
+        }
+        else
+        {
+            s.pop();
+            
+        }
+    }
+    
+    if(exists==true){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
