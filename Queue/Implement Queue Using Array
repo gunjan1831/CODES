@@ -1,0 +1,21 @@
+void MyQueue :: push(int x)
+{
+        // Your Codearr[]
+        
+        arr[rear]=x;
+        rear++;
+        
+}
+
+/*The method pop which return the element 
+  poped out of the queue*/
+int MyQueue :: pop()
+{
+        
+        if(rear==front)
+        {
+            return -1;
+        }
+        return arr[front++];
+      
+}
