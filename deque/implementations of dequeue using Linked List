@@ -1,0 +1,66 @@
+
+void Deque::insertFront(int data) 
+{ 
+    //Your code here
+    Node *nn=Node::getnode(data);
+    
+    if(front==NULL)
+    {
+        front=rear=nn;
+    }
+    else
+    {
+        nn->next=front;
+        front->prev=nn;
+        front=nn;
+    }
+    
+} 
+
+// Function to insert an element 
+// at the rear end 
+void Deque::insertRear(int data) 
+{ 
+	//Your code here
+	 Node *nn=Node::getnode(data);
+	if(rear==NULL)
+	{
+	  //nn->next=rear;
+	  front=rear=nn;
+	}
+	else
+	{
+	    nn->prev=rear;
+	    rear->next=nn;
+	    rear=nn;;
+	}
+} 
+
+// Function to delete the element 
+// from the front end 
+void Deque::deleteFront() 
+{ 
+if(front==NULL)
+return ;
+Node *temp=front;
+front=front->next;
+if(front==NULL){rear=NULL;
+return;}
+
+front->prev=NULL;
+free(temp);
+} 
+
+// Function to delete the element 
+// from the rear end 
+void Deque::deleteRear() 
+{ 
+    if(rear==NULL)
+return;
+Node *temp=rear;
+rear=rear->prev;
+if(rear==NULL){front=NULL;
+return ;}
+rear->next=NULL;
+free(temp);
+} 
