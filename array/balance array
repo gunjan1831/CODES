@@ -1,0 +1,24 @@
+Given an array of even size N, task is to find minimum value that can be added to an element so that array become balanced. An array is balanced if the sum of the left half of the array elements is equal to the sum of right half.
+
+
+ int minValueToBalance(int a[], int n)
+    {
+       int sum1=0,sum2=0;
+       for(int i=0;i<n/2;i++)
+       {
+           sum1+=a[i];
+       }
+       for(int j=n/2;j<n;j++)
+       {
+           sum2+=a[j];
+       }
+       if(sum1>sum2)
+       {
+           return sum1-sum2;
+       }
+       else
+       {
+           return sum2-sum1;
+       }
+    }
+};
