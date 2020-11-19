@@ -1,0 +1,12 @@
+deque<int> deque_Init(int arr[], int n)
+{
+    // add your code here
+    deque<int> ans;
+    
+    for(int i=0;i<n;i++)
+    {
+    ans.push_back(arr[i]);
+   
+    }
+    return ans;
+}
