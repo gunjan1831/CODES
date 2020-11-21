@@ -1,0 +1,26 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int s;
+	    cin>>s;
+	    int a[s];
+	    for(int i=0;i<s;i++)
+	    {
+	        cin>>a[i];
+	    }
+	    sort(a,a+s);
+	    for(int i=0;i<s-2;i++)
+	    {
+	        cout<<a[i]<<" ";
+	    }
+	    cout<<"\n";
+	}
+	return 0;
+}
