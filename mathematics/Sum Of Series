@@ -1,0 +1,5 @@
+long long seriesSum(int n) {
+	    // code here
+	    long long ans=((long long )n*(long long )(n+1))/2;   //Convert int to long too!
+	    return ans;
+	}
