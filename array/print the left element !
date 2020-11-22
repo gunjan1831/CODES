@@ -1,0 +1,41 @@
+Given a array of length N, at each step it is reduced by 1 element.
+In the first step the maximum element would be removed, while in the second step minimum element of the
+remaining array would be removed, in the third step again the maximum and so on. Continue this till the array contains only 1 element.
+And print that final element remaining in the array.
+
+
+Note:
+ Sort the array . If the value of N is odd then simply print the mid(n/2) element in the new array.
+
+If the value of N is even then print a[n/2-1] in the new array.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int s;
+	    cin>>s;
+	    int a[s];
+	    for(int i=0;i<s;i++)
+	    {
+	        cin>>a[i];
+	    }
+	    sort(a,a+s);
+	    if(s%2!=0)
+	    {
+	        cout<<a[s/2];
+	    }
+	    else
+	    {
+	        cout<<a[(s/2)-1];
+	    }
+	    cout<<"\n";
+	}
+	return 0;
+}
