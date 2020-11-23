@@ -1,0 +1,11 @@
+int convertFive(int n)
+{
+    string s=to_string(n),s1=" ";
+    for(int i=0;i<s.length();i++){
+        if(s[i]=='0')s1+='5';
+        else
+        s1+=s[i];
+    }
+    int p=stoi(s1);
+    return p;
+}
