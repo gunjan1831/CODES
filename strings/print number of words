@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    string s;
+	    cin>>s;
+	    int count=1;
+	    for(int i=0;i<s.length();i++)
+	    {
+	        if(isupper(s[i]))
+	        {
+	            count++;
+	        }
+	    }
+	    cout<<count<<"\n";
+	}
+	return 0;
+}
