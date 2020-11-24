@@ -1,0 +1,16 @@
+bool isIsogram(string s)
+{
+    map<char,int> ans;     //Hashing Used!
+    for(int i=0;i<s.length();i++)
+    {
+        ans[s[i]]++;
+    }
+    for(auto i:ans)
+    {
+        if(i.second>1)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
