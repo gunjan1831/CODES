@@ -1,0 +1,33 @@
+Pappu is confused between 6 & 9 . He works in billing department of abc company and his work is
+to return the remaining amount to the customers. If actual remaining amount is given we need to find the maximum
+possible extra amount given by the pappu to the customers.
+
+For ex:- actual remaining amount = 56
+
+so, maximum possible extra amount =  (59 - 56 ) = 3
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    string s,a;
+	    cin>>s;
+	    a=s;
+	    for(int i=0;i<s.length();i++)
+	    {
+	        if(s[i]=='6')
+	        {
+	            a[i]='9';
+	        }
+	    }
+	    int p=stoi(s);
+	    int q=stoi(a);
+	    cout<<q-p<<"\n";
+	}
+	return 0;
+}
+
