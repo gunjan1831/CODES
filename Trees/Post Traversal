@@ -1,0 +1,16 @@
+void op(Node *root,vector<int> &ans)  //reference address is important 
+{
+    if(root==NULL)
+    {
+        return ;
+    }
+    op(root->left,ans);
+    op(root->right,ans);
+    ans.push_back(root->data);
+}
+vector <int> postOrder(Node* root)
+{
+  vector<int> ans;
+  op(root,ans);
+  return ans;
+}
