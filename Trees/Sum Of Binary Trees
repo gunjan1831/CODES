@@ -1,0 +1,16 @@
+void cally(Node *root,long int &sum)
+{
+    if(root!=NULL)
+    {
+        cally(root->left,sum);      //You can traverse in any other way pre,post or in!
+        cally(root->right,sum);
+        sum+=root->key;
+    }
+}
+long int sumBT(Node* root)
+{
+    long int sum=0;
+    cally(root,sum);
+    return sum;
+    
+}
