@@ -1,0 +1,20 @@
+int max_depth(Node *node)
+    {
+        if(node==NULL)
+        {
+            return 0;
+        }
+        return  1+ max(max_depth(node->left),max_depth(node->right));
+    }
+    int height(struct Node* node)
+    {
+       
+        int h=1;
+        if(node->left==NULL&&node->right==NULL)
+        {
+            return h;
+        }
+        
+        h=max_depth(node);
+        return h;
+    }
