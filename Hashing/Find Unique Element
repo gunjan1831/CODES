@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int s;
+	    cin>>s;
+	    int a[s];
+	    int k;
+	    cin>>k;
+	    for(int i=0;i<s;i++)
+	    {
+	        cin>>a[i];
+	    }
+	    map<int,int> ans;
+	    for(int i=0;i<s;i++)
+	    {
+	        ans[a[i]]++;
+	    }
+	    for(auto j:ans)
+	    {
+	        if(j.second!=k)
+	        {
+	            cout<<j.first<<"\n";
+	        }
+	    }
+	}
+	return 0;
+}
