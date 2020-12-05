@@ -1,0 +1,21 @@
+int NumberofElementsInIntersection (int a[], int b[], int n, int m )
+{
+    map<int ,int> mp;
+    int count=0;
+    for(int i=0;i<n;i++)
+    {   if(mp[a[i]]==0)
+    {
+        mp[a[i]]++;
+    }
+    }
+    for(int j=0;j<m;j++)
+    {  
+        if(mp[b[j]]==1)
+        {
+        mp[b[j]]--;
+        count++;
+        }
+    }
+    
+    return count;
+}
