@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int s1,s2;
+	    cin>>s1>>s2;
+	    int a[s1],b[s2];
+	    for(int i=0;i<s1;i++)
+	    {
+	        cin>>a[i];
+	    }
+	    for(int j=0;j<s2;j++)
+	    {
+	        cin>>b[j];
+	    }
+	    map <int,int> mp;
+	    for(int i=0;i<s1;i++)
+	    {
+	        mp[a[i]]++;
+	    }
+	    for(int j=0;j<s2;j++)
+	    {
+	        mp[b[j]]++;
+	    }
+	    int p=0;
+	    for(auto m:mp)
+	    {
+	        if(m.second!=0)
+	        {
+	            p++;
+	        }
+	    }
+	    cout<<p<<"\n";
+	}
+	return 0;
+}
