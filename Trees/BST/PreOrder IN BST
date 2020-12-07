@@ -1,0 +1,18 @@
+void helper(struct Node* node,vector<int> &ans)
+{
+    if(node==NULL)
+    {
+        return;
+    }
+    ans.push_back(node->data);
+    helper(node->left,ans);
+    helper(node->right,ans);
+}
+
+vector <int> preOrder(struct Node* node) 
+{
+    vector<int> ans;
+    helper(node,ans);
+    return ans;
+	
+}
