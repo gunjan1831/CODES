@@ -1,0 +1,34 @@
+1.
+int getLevel(struct Node *node, int target)
+{ 
+    if(node==NULL) return 0;
+if(node->data==target) return 1;
+int left = getLevel(node->left, target);
+int right = getLevel(node->right, target);
+if(left==0 && right==0) return 0;
+if(left==0) return right+1;
+if(right==0) return left+1;
+}
+
+2.
+
+int getLevelUtil(struct Node* node, int data, int level)
+{
+	if (node == NULL)
+		return 0;
+	if (node->data == data)
+		return level;
+	int downlevel = getLevelUtil(node->left, data, level+1);
+	if (downlevel != 0)
+		return downlevel;
+	downlevel = getLevelUtil(node->right, data, level+1);
+	return downlevel;
+}
+
+int getLevel(struct Node *node, int target)
+{
+	return getLevelUtil(node, target, 1);
+}
+
+
+
