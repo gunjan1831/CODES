@@ -1,0 +1,36 @@
+void helper(Node *root,vector<int> &ans)
+{
+    if(root==NULL)
+    {
+        return;
+    }
+    
+        ans.push_back(root->data);
+        helper(root->left,ans);
+        helper(root->right,ans);
+    
+}
+void tryy(Node *root,vector <int> &ans)
+{
+   helper(root,ans);
+   //return ans;
+}
+int kthLargest(Node *root, int K)
+{
+    vector<int> ans;
+    ans.push_back(root->data);
+    
+    tryy(root->right,ans);
+    tryy(root->left,ans);
+    
+    sort(ans.begin(),ans.end());
+    return ans[ans.size()-K];
+    
+    
+}
+
+
+or 
+
+
+reverse inorder traversal can be/should be  used
