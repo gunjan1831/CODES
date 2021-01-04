@@ -1,0 +1,29 @@
+int searchy(int a[],int x,int s)
+{
+    for(int i=0;i<s;i++)
+    {
+        if(a[i]==x)
+        {
+            return i;
+        }
+    }
+    return 0;
+}
+void printPostOrder(int in[], int pre[], int n)
+{
+ int root=searchy(in,pre[0],n);
+ 
+ if(root!=0)
+ {
+     printPostOrder(in,pre+1,root);
+ }
+ 
+ if(root!=n-1)
+ {
+     printPostOrder(in+root+1,pre+root+1,n-root-1);
+ }
+ 
+ cout<<pre[0]<<" ";
+
+
+}
