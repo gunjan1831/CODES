@@ -1,0 +1,23 @@
+bool subArrayExists(int arr[], int n)
+{
+    map<int,int> mp;
+    int sum=arr[0];
+    mp[sum]++;
+    for(int i=1;i<n;i++)
+    {
+         sum+=arr[i];
+        mp[sum]++;
+    }
+    if(mp[0]>0)
+    {
+        return true;
+    }
+    for(auto m:mp)
+    {
+        if(m.second>1)
+        {
+            return true;
+        }
+    }
+    return false;
+}
