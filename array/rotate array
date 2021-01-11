@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+
+void reverse(int low,int high,int arr[])
+{
+   while(low<high)
+   {
+       int temp=arr[low];
+       arr[low]=arr[high];
+       arr[high]=temp;
+       low++;
+       high--;
+   }
+}
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int s,d;
+	    cin>>s>>d;
+	    int a[s];
+	    for(int i=0;i<s;i++)
+	    {
+	        cin>>a[i];
+	    }
+	    reverse(0,d-1,a);
+	    reverse(d,s-1,a);
+	    reverse(0,s-1,a);
+	    for(int i=0;i<s;i++)
+	    {
+	        cout<<a[i]<<" ";
+	    }
+	    cout<<"\n";
+	}
+	return 0;
+}
