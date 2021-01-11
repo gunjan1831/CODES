@@ -1,0 +1,27 @@
+void segregateElements(int arr[],int n)
+{
+    // Your code goes here
+    int a[n],b[n];
+    int k=0,l=0;
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]>=0)
+        {
+            a[k]=arr[i];
+            k++;
+        }
+        else
+        {
+            b[l]=arr[i];
+            l++;
+        }
+    }
+    for(int g=0;g<k;g++)
+    {
+        arr[g]=a[g];
+    }
+    for(int p=0;p<l;p++)
+    {
+        arr[p+k]=b[p];
+    }
+}
