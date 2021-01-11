@@ -1,0 +1,15 @@
+int multiply(int arr[], int n)
+{
+    // Complete the function
+    
+    int one=0,two=0;
+    for(int i=0;i<n/2;i++)
+    {
+        one+=arr[i];
+    }
+    for(int j=n/2;j<n;j++)
+    {
+        two+=arr[j];
+    }
+    return one*two;
+}
