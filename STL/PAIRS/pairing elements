@@ -1,0 +1,29 @@
+vector<pair<int, int>> array_of_Pairs(int arr[], int N)
+{
+    // your code here
+    
+    vector<pair<int,int> >ans;
+    
+        if(N%2==0)
+        {
+        for(int i=0;i<N/2;i++)
+        { 
+            pair <int,int> q;
+            q={arr[i],arr[N-i-1]};
+            ans.push_back(q);
+        }
+        }
+        else
+        {
+            for(int i=0;i<=N/2;i++)
+        { 
+            pair <int,int> q;
+            q={arr[i],arr[N-i-1]};
+            ans.push_back(q);
+        }
+            
+        }
+   //n a vector of pairs
+    
+    return ans;
+}
