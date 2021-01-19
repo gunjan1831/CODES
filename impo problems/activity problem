@@ -1,0 +1,25 @@
+bool cmp(pair<int,int> a,pair<int,int>b)
+{
+    return a.second<b.second;
+}
+int activitySelection(int start[], int end[], int n){
+    // Your code here
+    pair<int,int> p[n];
+    for(int i=0;i<n;i++)
+    {
+        p[i]={start[i],end[i]};
+    }
+    sort(p,p+n,cmp);
+    int c=1;
+    pair<int,int> ans=p[0];
+    for(int i=1;i<n;i++)
+    {
+        if(p[i].first>=ans.second)
+        {
+            c++;
+            ans=p[i];
+        }
+        
+    }
+    return c;
+}
