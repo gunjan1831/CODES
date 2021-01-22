@@ -1,0 +1,33 @@
+int getsum(int num)
+{ 
+    int sum=0;
+    while(num!=0)
+    {
+       int rem=num%10;
+       sum+=rem;
+       num=num/10;
+    }
+    return sum;
+}
+class Solution{   
+public:
+    string smallestNumber(int S, int D){
+        // code here 
+        int ans=-1;
+        int k=1;
+        for(int i=1;i<D;i++)
+        {
+            k=k*10;
+        }
+        int max=k*10-1;
+        for(int j=k;j<=max;j++)
+        {
+            if(getsum(j)==S)
+            {
+                ans=j;
+                break;
+            }
+        }
+        string su=to_string(ans);
+        return su;
+    }
