@@ -1,0 +1,12 @@
+ int minimumDays(int S, int N, int M){
+       if(M>N)
+return -1;
+
+if(S>6 && (N*6)<(M*7))
+return -1;
+else{
+double temp=(S*M*1.0)/N;
+int days=ceil(temp);
+return days;
+    }
+    }
