@@ -1,0 +1,60 @@
+struct Interval
+    {
+        int buy;
+        int sell;
+    };
+
+    vector<vector<int> > stockBuySell(vector<int> A, int n)
+    {
+        vector<vector<int> > result;
+        // Prices must be given for at least two days
+        if (n == 1)    
+            return result;
+     
+        int count = 0; // count of solution pairs
+     
+        // solution vector
+        Interval sol[n/2 + 1];
+     
+        // Traverse through given array
+        int i = 0;
+        while (i < n-1)
+        {
+            // Find Local Minima. Note that the limit is (n-2) as we are
+            // comparing present element to the next element. 
+            while ((i < n-1) && (A[i+1] <= A[i]))
+                i++;
+     
+            // If we reached the end, break as no further solution possible
+            if (i == n-1)
+                break;
+     
+            // Store the index of minima
+            sol[count].buy = i++;
+     
+            // Find Local Maxima.  Note that the limit is (n-1) as we are
+            // comparing to previous element
+            while ((i < n) && (A[i] >= A[i-1]))
+                i++;
+     
+            // Store the index of maxima
+            sol[count].sell = i-1;
+     
+            // Increment count of buy/sell pairs
+            count++;
+        }
+        
+        if (count == 0)
+            return result;
+        else
+        {
+            for (int i = 0; i < count; i++){
+                vector<int> temp;
+                temp.push_back(sol[i].buy);
+                temp.push_back(sol[i].sell);
+                result.push_back(temp);
+            }
+
+        }
+        return result;
+    }
