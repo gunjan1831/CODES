@@ -1,0 +1,25 @@
+vector<int> permute(vector<vector<int>> &arr, int n)
+{
+    
+    // Complete the function
+    vector<int> ans,a;
+    for(int i=0;i<n;i++)
+    {   int sum=0;
+        
+            sum+=arr[i][0]+arr[i][1];
+            ans.push_back(sum);
+        
+    }
+   // sort(ans.begin(),ans,end())
+   pair<int,int> p[n];
+   for(int i=0;i<n;i++)
+   {
+       p[i]={ans[i],i+1};
+   }
+   sort(p,p+n);
+   for(int i=0;i<n;i++)
+   {
+       a.push_back(p[i].second);
+   }
+   return a; 
+}
