@@ -1,0 +1,55 @@
+Gfg or using Binary Search - o(logn),o(1) solution 
+pair<int, int> findRepeating(int *arr, int n){
+    
+    // if no elements
+    if(n == 0){
+        return {0, 0};
+    }
+    
+    // if one element in the array
+    // or array with no repeating elements
+    if(n-(arr[n-1]-arr[0]) == 1){
+        return {-1, -1};
+    }
+    
+    int lo = 0, hi = n-1;
+    int mid = 0;
+    
+    // binary search to find the element which is repeating
+    while(lo < hi){
+        
+        mid = (lo+hi)/2;
+        
+        if(arr[mid] >= mid + arr[0]){
+            lo = mid+1;
+        }
+        else{
+            hi = mid;
+        }
+    }
+    
+    return {arr[mid], n-(arr[n-1]-arr[0])};
+    
+}
+
+
+naive solution but worked too! o(n)
+
+pair<int, int> findRepeating(int *arr, int n){
+    //code here
+    
+    pair<int,int> ansi;
+    int rep=0,count=0;
+    pair<int,int> solve[n];
+    for(int i=0;i<n;i++)
+    {
+        int ans=arr[i];
+        if(arr[i+1]==ans)
+        {  
+            rep=arr[i];
+            count++;
+        }
+    }
+    ansi={rep,count+1};
+    return ansi;
+}
