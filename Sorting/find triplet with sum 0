@@ -1,0 +1,36 @@
+bool isPair(int arr[], int start, int end, int x)
+{
+    int left = start, right = end;
+    
+    while(left < right)
+    {
+        if(x + arr[left] + arr[right] == 0)
+        {
+            return true;
+        }
+        else if(x + arr[left] + arr[right] > 0)
+        {
+            right--;
+        }
+        else
+        {
+            left++;
+        }
+    }
+    
+    return false;
+}
+bool findTriplets(int arr[], int n)
+{
+    sort(arr, arr+n);
+    
+    for(int i = 0; i < n; i++)
+    {
+        if(isPair(arr, i+1, n-1, arr[i]) == true)
+        {
+            return true;
+        }
+    }
+    
+    return false;
+}
