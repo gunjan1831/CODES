@@ -1,0 +1,36 @@
+bool ispair(int a[],int ar,int b,int d,int e)
+{
+int low=b,high=d;
+
+while(low<high)
+{
+    if(a[low]+a[high]==e-ar)
+    {
+        return true;
+    }
+    else
+    if(a[low]+a[high]>e-ar)
+    {
+        high--;
+    }
+    else{
+        low++;
+    }
+}
+return false;
+}
+bool find3Numbers(int arr[], int N, int X)
+{
+    //Your Code Here
+    sort(arr,arr+N);
+     
+     
+     for(int i=0;i<N;i++)
+     {
+         if(ispair(arr,arr[i],i+1,N-1,X)==true)
+         {
+             return true;
+         }
+     }
+     return false;
+}
