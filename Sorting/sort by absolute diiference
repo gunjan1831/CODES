@@ -1,0 +1,15 @@
+int aa=0;
+bool mycmp(int a,int b)
+{
+    if(abs(a-aa)<abs(b-aa))
+    return true;
+    
+return false;
+}
+
+void sortABS(int A[],int N, int k)
+{
+   //Your code here
+   aa=k;
+   stable_sort(A,A+N,mycmp);
+}
