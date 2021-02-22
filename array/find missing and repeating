@@ -1,0 +1,31 @@
+int *findTwoElement(int *arr, int n) {
+        // code here
+          
+   int hash[n+1]={0};
+   for(int i=1;i<=n;i++)
+   {
+       hash[arr[i-1]]+=1;
+   }
+   hash[0]=1;
+   int miss=0,repeat=0;
+    for(int i=1;i<=n;i++)
+    {
+        if(hash[i]==0)
+        {
+            miss=i;
+           break;
+        }
+    }
+    for(int i=1;i<=n;i++)
+    {
+        if(hash[i]>1)
+        {
+            repeat=i;
+           break;
+        }
+    }
+    int *aaa= new int[2];
+    aaa[0]=repeat,aaa[1]=miss;
+    return aaa;
+        
+    }
