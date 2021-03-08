@@ -1,0 +1,19 @@
+ vector<int> mergeThree(vector<int>& A, vector<int>& B, vector<int>& C) 
+    { 
+        //Your code here
+        vector<int> ans;
+        for(int i=0;i<A.size();i++)
+        {
+            ans.push_back(A[i]);
+        }
+        for(int j=0;j<B.size();j++)
+        {
+            ans.push_back(B[j]);
+        }
+        for(int p=0;p<C.size();p++)
+        {
+            ans.push_back(C[p]);
+        }
+        sort(ans.begin(),ans.end());
+        return ans;
+    } 
