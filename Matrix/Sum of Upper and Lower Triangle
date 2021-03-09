@@ -1,0 +1,29 @@
+ vector<int> sumTriangles(const vector<vector<int> >& matrix, int n)
+    {
+        // code here
+        vector<int> ans;
+        int sum=0,sum1=0;
+        for(int i=0;i<matrix.size();i++)
+        {
+            for(int j=0;j<matrix[i].size();j++)
+            {
+               if(i<j)
+               {
+                   sum+=matrix[i][j];
+               }
+               else
+               if(i>j)
+               {
+                   sum1+=matrix[i][j];
+               }
+               else
+               {
+                   sum+=matrix[i][j];
+                   sum1+=matrix[i][j];
+               }
+            }
+        }
+        ans.push_back(sum);
+        ans.push_back(sum1);
+        return ans;
+    }
