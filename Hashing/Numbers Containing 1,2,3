@@ -1,0 +1,28 @@
+bool kyameradigit(int n)
+{   
+    
+    while(n!=0)
+    {
+       int rem=n%10;
+       if(rem==0||rem>3)
+       {
+           return false;
+       }
+       n=n/10;
+    }
+    return true;
+}
+
+void findAll() {
+    //code here
+    for(int i=0;i<1000000;i++)
+    {
+        if(kyameradigit(i)==true)
+        {
+            mp[i]++;
+        }
+      
+        
+    }
+   
+}
