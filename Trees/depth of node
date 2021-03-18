@@ -1,0 +1,17 @@
+bool checkleaf(Node *root) 
+{ 
+    return (root->left == NULL && root->right == NULL); 
+}
+
+int depthOfOddLeafUtil(struct Node *root,int level)
+{
+    
+    if ( root == NULL) 
+        return 0; 
+ 
+    if (level % 2 != 0 && checkleaf(root)) 
+        return level; 
+
+    return max(depthOfOddLeafUtil(root->left,level+1),depthOfOddLeafUtil(root->right,level+1));
+    
+}
