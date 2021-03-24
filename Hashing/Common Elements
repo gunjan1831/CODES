@@ -1,0 +1,32 @@
+  vector <int> commonElements (int A[], int B[], int C[], int n1, int n2, int n3)
+        {
+            vector<int> ans;
+            set<int> s1(A,A+n1);
+            set<int> s2(B,B+n2);
+            set<int> s3(C,C+n3);
+            
+  
+    // Traverse the Vector
+   
+            map<int,int>mp;
+            for(int i:s1)
+            {
+                mp[i]++;
+            }
+            for(int i:s2)
+            {
+                mp[i]++;
+            }
+            for(int i:s3)
+            {
+                mp[i]++;
+            }
+            for(auto x:mp)
+            {
+                if(x.second>=3)
+                {
+                    ans.push_back(x.first);
+                }
+            }
+            return ans;
+        }
