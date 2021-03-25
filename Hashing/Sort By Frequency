@@ -1,0 +1,40 @@
+static  bool cmp(pair<int,int> &a,pair<int,int> &b)
+    {
+        if(a.second!=b.second)
+        {
+            return a.second>b.second;
+        }
+        else
+        {
+            return a.first<b.first;
+         }
+    }
+    vector<int> sortByFreq(int arr[],int n)
+    {
+       map<int,int>mp;
+       vector<pair<int,int>> p1;
+       //pair<int,int>p1;
+       
+       for(int i=0;i<n;i++)
+       {
+           mp[arr[i]]++;
+       }
+       
+       for(auto x:mp)
+       {  
+           if(x.second>0)
+           {
+           p1.push_back({x.first,x.second});
+           }
+       }
+       sort(p1.begin(),p1.end(),cmp);
+       vector <int>lo;
+      for(int i=0;i<p1.size();i++)
+      {
+          for(int j=0;j<p1[i].second;j++)
+          {
+              lo.push_back(p1[i].first);
+          }
+      }
+       return lo;
+    }
