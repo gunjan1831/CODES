@@ -1,0 +1,19 @@
+string reverseString(string s)
+{
+    string res;
+    int hash[256]={0};
+    for(int i=s.size()-1;i>=0;i--)
+    {
+        if(s[i]==' ')
+        {
+            continue;
+        }
+        if(hash[s[i]]==0)
+        {
+            res+=s[i];
+        }
+        hash[s[i]]++;
+        
+    }
+  return res;  
+ }
