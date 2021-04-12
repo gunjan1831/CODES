@@ -1,0 +1,41 @@
+int atoi(string str)
+    {
+        //Your code here
+        int num=0;
+        string ans="";
+        if(str[0]=='-')
+        {
+            for(int i=1;i<str.size();i++)
+            {
+               if(str[i]>='0'&&str[i]<='9')
+               {
+                   num=num*10+ str[i]-'0';
+               }
+               else
+               {
+                   return -1;
+               }
+            }
+        }
+        else
+        {
+            for(int i=0;i<str.size();i++)
+            {
+               if(str[i]>='0'&&str[i]<='9')
+               {
+                   num=num*10+ str[i]-'0';
+               }
+               else
+               {
+                   return -1;
+               }
+            }
+            
+        }
+        
+        if(str[0]=='-')
+        {
+            return num*-1;
+        }
+        return num;
+    }
