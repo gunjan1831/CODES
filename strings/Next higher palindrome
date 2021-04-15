@@ -1,0 +1,25 @@
+ string nextPalin(string N) { 
+        //complete the function here
+        int m=N.size();
+        int mid=m/2-1;
+        string fh=N.substr(0,mid+1);
+        string pfh=fh;
+        next_permutation(fh.begin(),fh.end());
+        string res="";
+        
+        //if there is no possibility 
+        
+        if(fh<=pfh)
+        {
+            return "-1";
+        }
+        string sh=fh;
+        res=res+fh;
+        reverse(sh.begin(),sh.end());
+        if(N.size() % 2 == 1)
+        {
+            res += N[N.size() / 2];
+        }
+        res=res+sh;
+        return res;
+    }
