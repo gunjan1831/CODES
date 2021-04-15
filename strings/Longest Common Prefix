@@ -1,0 +1,39 @@
+ string longestCommonPrefix (string arr[], int N)
+    {
+        int mi=INT_MAX;
+        string c=arr[0];
+        for(int i=1;i<N;i++)
+        {   
+            int a=0;
+            int j=0,k=0;
+            string pro=arr[i];
+            while(j<c.size()&&k<pro.size())
+            {
+               if(c[j]==pro[k])
+               {
+                   a++;
+               }
+               else
+               {
+                   break;
+               }
+               j++;
+               k++;
+               
+            }
+            
+         mi=min(mi,a);
+        }
+        
+        
+        string ansy= c.substr(0,mi);
+        if(ansy.length()==0)
+        {
+            return "-1";
+        }
+        else
+        {
+            return ansy;
+        }
+        
+    }
