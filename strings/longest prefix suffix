@@ -1,0 +1,31 @@
+	int lps(string s)
+	{
+	    int n=s.length();
+	    int lps[n];
+	    int len=0,i=1;
+	    lps[0]=0;
+	    while(i<n)
+	    {
+	        if(s[i]==s[len])
+	        {
+	            len++;
+	            lps[i]=len;
+	            i++;
+	        }
+	        else
+	        {
+	            if(len==0)
+	            {
+	                lps[i]=0;
+	                i++;
+	            }
+	            else
+	            {
+	                len=lps[len-1];
+	            }
+	            
+	        }
+	    }
+	   // sort(lps,lps+n);  //no sort since we have to return longest proper prefix n proper suffix.
+	    return lps[n-1];
+	}
