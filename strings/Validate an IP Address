@@ -1,0 +1,34 @@
+bool isNumber(string str)
+{
+    for (char c : str) {
+        if (isdigit(c) == 0) return false;
+    }
+    return true;
+}
+
+int isValid(string S) {
+    // your code here
+    string T;
+	stringstream X(S);
+	
+	// Count period, if count !=3, return 0
+	int period_count=0;
+	period_count=count(S.begin(),S.end(),'.');
+	if(period_count!=3){
+	    return 0;
+	}
+
+	while (getline(X, T, '.')) {
+	    
+	   
+	    
+	    if(1<=T.size() && T.size()<=3 && isNumber(T) && to_string(stoi(T)).size()==T.size() && stoi(T)>=0 && stoi(T)<=255 )
+	    {
+	        // Do nothing
+	    }
+	    else{
+	        return 0;
+	    }
+	}
+	return 1;
+}
