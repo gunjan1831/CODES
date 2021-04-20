@@ -1,0 +1,32 @@
+int searchInsertK(vector<int>Arr, int N, int k)
+    {
+        int index=0;
+        if(k==Arr[N-1])
+        {
+            return N-1;
+        }
+        if(k>Arr[N-1])
+        {
+            return N;
+        }
+        else
+        if(k<Arr[0])
+        {
+            return 0;
+        }
+        for(int i=0;i<N;i++)
+        {
+            if(Arr[i]==k && Arr[i+1]>k)
+            {
+                index=i;
+                break;
+            }
+            else
+            if(Arr[i]<k && Arr[i+1]>k)
+            {
+                index=i+1;
+                break;
+            }
+        }
+        return index;
+    }
