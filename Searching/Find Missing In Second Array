@@ -1,0 +1,21 @@
+vector<long long> findMissing(long long A[], long long B[],  
+                 int N, int M) 
+	{ 
+	    // Your code goes here
+	    vector<long long> ans;
+	   unordered_set<long long> b;
+	  
+	   for(int i=0;i<M;i++)
+	   {
+	       b.insert(B[i]);
+	   }
+	   for(int j=0;j<N;j++)
+	   {
+	       if(b.find(A[j])==b.end())
+	       {
+	           ans.push_back(A[j]);
+	       }
+	   }
+	   
+	   return ans;
+	} 
