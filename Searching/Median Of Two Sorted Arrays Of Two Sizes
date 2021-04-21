@@ -1,0 +1,17 @@
+double MedianOfArrays(vector<int>& array1, vector<int>& array2)
+{
+    // Your code goes here
+    vector<int> ans(array1.size()+array2.size());
+    merge(array1.begin(),array1.end(),array2.begin(),array2.end(),ans.begin());
+    sort(ans.begin(),ans.end());
+    
+    int s=ans.size();
+    if(s%2!=0)
+    {
+        return ans[s/2];
+    }
+    else
+    {
+        return (double) (ans[(s-1)/2]+ans[s/2])/2;
+    }
+}
