@@ -1,0 +1,26 @@
+ string modify (string s)
+        {
+            //code here.
+            int si=s.size();
+            //char num[si];
+            string l="";
+            for(int i=0;i<si;i++)
+            {
+                if(s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u')
+                {
+                   l+=s[i];
+                }
+                
+            }
+           int lo=l.size()-1;
+            for(int i=0;i<si;i++)
+            {
+                if(s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u')
+                {
+                  s[i]=l[lo];
+                  lo--;
+                }
+                
+            }
+            return s;
+        }
