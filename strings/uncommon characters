@@ -1,0 +1,39 @@
+string UncommonChars(string A, string B)
+        {
+           set<char> s,m;
+           for(int i=0;i<B.size();i++)
+          {
+              m.insert(B[i]);
+          }
+           for(int i=0;i<A.size();i++)
+          {
+              s.insert(A[i]);
+          }
+          string ans="";
+          for(int i=0;i<A.size();i++)
+          {
+              if(m.find(A[i])==m.end())
+              {
+                  ans+=A[i];
+              }
+          }
+           for(int i=0;i<B.size();i++)
+          {
+              if(s.find(B[i])==s.end())
+              {
+                  ans+=B[i];
+              }
+          }
+          if(ans=="")
+          {
+              return "-1";
+          }
+          set <char> su(begin(ans),end(ans));
+          string ao="";
+          
+          for(auto e:su)
+          {
+              ao+=e;
+          }
+          return ao;
+        }
