@@ -1,0 +1,41 @@
+int getCount (string S, int N)
+        {
+            int mp[26]={0};
+            int count=0;
+            for(int i=0;i<S.size();)
+            {   
+                if(S[i]==S[i+1])
+                {
+               // mp[S[i]-'a']++;
+                i++;
+                }
+                else
+                {
+                   mp[S[i]-'a']++; 
+                   i++;
+                }
+                
+            }
+            if(N==0)
+            {
+                for(int i=0;i<26;i++)
+                {
+                    if(mp[i]==0)
+                    {
+                        count++;
+                    }
+                }
+            }
+            else
+            {
+            for(int i=0;i<26;i++)
+            {
+               if(mp[i]==N)
+               {
+                   count++;
+               }
+            }
+            }
+            
+        return count;
+        }
