@@ -1,0 +1,55 @@
+string printNumber(string s, int n) 
+{
+    int hash[26];
+    int  j=0;
+    int k=2;
+    int i=0;
+    while(i<26 &&k<=6)
+    {
+        hash[i]=k;
+        j++;
+        
+        if(j==3)
+        {
+            j=0;
+            k++;
+        }
+        i++;
+    }
+    k=7;
+    hash[i]=k;
+    
+    for(int j=0;j<=3;j++)
+    {
+        hash[i++]=k;
+    }
+    k++;
+    j=0;
+    while(i<26 && k<=8)
+    {
+        hash[i]=k;
+        i++;
+        j++;
+        if(j==3)
+        {   
+            j=0;
+            break;
+        }
+    }
+    k=9;
+     while(i<26)
+    {
+        hash[i]=k;
+        i++;
+        j++;
+        
+    }
+    
+    string a="";
+    
+    for(int i=0;i<n;i++)
+    {
+        a+=to_string(hash[s[i]-'a']);
+    }
+    return a;
+}
