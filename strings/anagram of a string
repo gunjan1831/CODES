@@ -1,0 +1,31 @@
+int remAnagram(string str1, string str2)
+{
+    int s1=str1.size();
+    int s2=str2.size();
+    
+    int h1[26]={0},h2[26]={0};
+    int count=0;
+    
+    for(int i=0;i<s1;i++)
+    {
+        h1[str1[i]-'a']++;
+    }
+    
+    for(int j=0;j<s2;j++)
+    {
+        h2[str2[j]-'a']++;
+    }
+    
+    for(int i=0;i<26;i++)
+    {
+        if(h1[i]==h2[i])
+        {
+            continue;
+        }
+        else
+        {
+            count+=abs(h1[i]-h2[i]);
+        }
+    }
+   return count;
+}
