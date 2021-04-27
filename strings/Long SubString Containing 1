@@ -1,0 +1,26 @@
+
+int maxlength( string s)
+{
+ int res=INT_MIN;
+ 
+ 
+ for(int i=0;i<s.size();i++)
+ {
+     if(s[i]=='1')
+     {
+         int count=1;
+         while(s[i+1]=='1' && i<s.size())
+         {
+             count++;
+             i++;
+         }
+     
+     res=max(res,count);
+ }}
+ 
+ if(res==INT_MIN)
+ {
+     return 0;
+ }
+ return res;
+}
