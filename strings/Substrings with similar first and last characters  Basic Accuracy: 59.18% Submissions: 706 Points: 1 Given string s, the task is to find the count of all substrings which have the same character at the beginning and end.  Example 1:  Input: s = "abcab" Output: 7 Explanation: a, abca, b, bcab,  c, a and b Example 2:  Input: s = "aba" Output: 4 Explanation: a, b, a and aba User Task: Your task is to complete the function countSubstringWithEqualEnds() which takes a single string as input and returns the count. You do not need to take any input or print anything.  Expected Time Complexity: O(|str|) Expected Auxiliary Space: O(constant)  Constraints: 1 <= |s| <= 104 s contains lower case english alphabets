@@ -1,0 +1,22 @@
+int countSubstringWithEqualEnds(string s)
+	{
+	  int hash[26]={0};
+	  
+	  for(int i=0;i<s.size();i++)
+	  {
+	      hash[s[i]-'a']++;
+	  }
+	  int count=0;
+	  
+	  count+=s.length();
+	  
+	  for(int i=0;i<26;i++)
+	  {
+	      if(hash[i]>0)
+	      {
+	          int d= (((hash[i])*(hash[i]-1)))/2;
+	          count+=d;
+	      }
+	  }
+	  return count;
+	}
