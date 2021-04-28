@@ -1,0 +1,48 @@
+vector<string> findMatchedWords(vector<string> dict,string pattern)
+{
+       vector<string> ans;
+       unordered_map<char,int> mp;
+       int counter=1;
+       
+       for(int i=0;i<pattern.size();i++)
+       {
+           if(mp[pattern[i]]==0)
+           {
+               mp[pattern[i]]=counter;
+               counter++;
+           }
+       }
+       string hash="";
+       for(int i=0;i<pattern.size();i++)
+       {
+           hash+=mp[pattern[i]];
+       }
+       
+       for(int j=0;j<dict.size();j++)
+       {   
+           unordered_map<char,int>m;
+           string temp=dict[j];
+           int count=1;
+           for(int i=0;i<temp.size();i++)
+       {
+           if(m[temp[i]]==0)
+           {
+               m[temp[i]]=count;
+               count++;
+           }
+       }
+       string hash2="";
+       for(int i=0;i<temp.size();i++)
+       {
+           hash2+=m[temp[i]];
+       }
+       
+       
+       if(hash==hash2)
+       {
+           ans.push_back(temp);
+       }
+       }
+       
+       return ans;
+}
