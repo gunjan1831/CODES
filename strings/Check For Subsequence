@@ -1,0 +1,18 @@
+{
+        // code here
+        
+        int j=0,count=0;
+        for(int i=0;i<B.size();i++)
+        {
+            if(B[i]==A[j])
+            {
+                count++;
+                j++;
+            }
+        }
+        if(count==A.size())
+        {
+            return true;
+        }
+        return false;
+    }
