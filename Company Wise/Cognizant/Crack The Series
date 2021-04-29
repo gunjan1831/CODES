@@ -1,0 +1,12 @@
+  long double NthTerm(int N){
+        // code here
+        
+        if(N%2==0)
+        {
+            return (long double)(pow(2,(long long int)pow(3,N/2-1)));
+        }
+        else
+        {
+            return (long double)(pow(2,(long long int)pow(2,N/2)));
+        }
+    }
