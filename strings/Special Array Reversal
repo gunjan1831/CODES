@@ -1,0 +1,33 @@
+
+    void reversy(string &a)
+    {
+        int n = a.length();
+ 
+    for (int i = 0; i < n / 2; i++)
+        swap(a[i], a[n - i - 1]);
+    }
+    string reverse(string str)
+    { 
+        //code here.
+        string a="";
+        for(int i=0;i<str.size();i++)
+        {
+            if(str[i]>='a'&& str[i]<='z'  || str[i]>='A'&&str[i]<='Z')
+            {
+                a+=str[i];
+            }
+        }
+       // cout<<a;
+        reversy(a);
+        //cout<<a;
+        int j=0;
+    for(int i=0;i<str.size();i++)
+        {
+            if(isalpha(str[i]))
+            {
+               str[i]=a[j];
+               j++;
+            }
+        }
+        return str;
+    } 
