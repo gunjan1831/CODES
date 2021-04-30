@@ -1,0 +1,25 @@
+bool commonSubseq (string a, string b)
+	{
+	    // your code her
+	    
+	    int i=0,j=0;
+	    sort(a.begin(),a.end());
+	    sort(b.begin(),b.end());
+	    while(i<a.size() && j<b.size())
+	    {
+	        if(a[i]==b[j])
+	        {
+	            return true;
+	        }
+	        else
+	        if(a[i]<b[j])
+	        {
+	        i++;
+	        }
+	        else
+	        {
+	        j++;
+	        }
+	    }
+	    return false;
+	}
