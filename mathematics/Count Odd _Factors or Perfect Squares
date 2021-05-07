@@ -1,0 +1,4 @@
+int count(int N){
+        // code here
+       return sqrt(N);
+    }
