@@ -1,0 +1,36 @@
+Logic: Find the LCS of given string and its reverse and then return (size of string- length of LCS) as answer.
+
+
+Code :
+  
+    int lps(string a,string b,int m,int  n)
+    {
+        int t[m+1][n+1];
+        memset(t,0,sizeof(t));
+        
+        for(int i=1;i<m+1;i++)
+        {
+            for(int j=1;j<n+1;j++)
+            {
+                if(a[i-1]==b[j-1])
+                {
+                    t[i][j]=1+t[i-1][j-1];
+                }
+                else
+                {
+                    t[i][j]= max(t[i][j-1],t[i-1][j]);
+                }
+            }
+        }
+        
+        int count=t[m][n];
+        return m-count;
+    }
+    int countMin(string str){
+    //complete the function here
+    
+    int m=str.size();
+    string s=str;
+    reverse(str.begin(),str.end());
+    return lps(s,str,m,m);
+    }
