@@ -1,4 +1,7 @@
-  int dp[101][101];
+ Recursive Solution Bottom Up Memoized
+ 
+ 
+ int dp[101][101];
 int mm(int *a,int i,int j){
 
 if(i>=j)
