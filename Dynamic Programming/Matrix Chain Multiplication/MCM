@@ -1,0 +1,22 @@
+  int dp[101][101];
+int mm(int *a,int i,int j){
+
+if(i>=j)
+return 0;
+if(dp[i][j]!=-1)
+return dp[i][j];
+dp[i][j] = INT_MAX;
+//cout << dp[i][j] <<" ";
+for(int k = i; k < j; k++){
+int x= mm(a,i,k)+mm(a,k+1,j) + a[i-1]*a[k]*a[j];
+if(x < dp[i][j])
+dp[i][j] = x;
+}
+return dp[i][j];
+
+}
+int matrixMultiplication(int j, int a[])
+{
+memset(dp,-1,sizeof(dp));
+return mm(a,1,j-1);
+}
