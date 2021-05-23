@@ -1,0 +1,23 @@
+ vector<int> inOrder(Node* root)
+    {
+        //code here
+        Node * curr=root;
+        stack<Node *>s;
+        vector<int>v;
+        
+        
+        while(curr!=NULL || s.empty()==false)
+        {
+            while(curr!=NULL)
+            {
+                s.push(curr);
+                curr=curr->left;
+            }
+            
+            curr=s.top();
+            s.pop();
+            v.push_back(curr->data);
+            curr=curr->right;
+        }
+        return v;
+    }
