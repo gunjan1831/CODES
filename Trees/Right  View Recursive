@@ -1,0 +1,24 @@
+void call(Node *root,vector<int>&ans,int l,int &mxlevel)
+    {
+        if(root==NULL)        //BASE CONDITION
+        {
+            return;
+        }
+        
+        if(mxlevel<l)
+        {
+            ans.push_back(root->data);
+            mxlevel=l;
+        }
+        call(root->right,ans,l+1,mxlevel);
+        call(root->left,ans,l+1,mxlevel);
+    }
+    vector<int> rightView(Node *root)
+    {
+       // Your Code here
+       vector<int> ans;
+       int level=1;
+       int mxlevel=0;
+       call(root,ans,level,mxlevel);
+       return ans;
+    }
