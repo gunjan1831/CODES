@@ -1,0 +1,17 @@
+ 
+    int f(Node *node)
+    {
+        if(node==NULL)
+        {
+            return 0;
+        }
+        int d=node->data;
+        int l=f(node->left);
+        int r=f(node->right);
+        node->data=l+r;
+        return d+node->data;
+    }
+    void toSumTree(Node *node)
+    {
+       f(node);
+    }
