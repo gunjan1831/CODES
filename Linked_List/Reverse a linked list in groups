@@ -1,0 +1,28 @@
+ //struct node* prev=NULL;
+    struct node *reverse (struct node *head, int k)
+    {  struct node* prev=NULL;
+        struct node *curr=head,*fwd=NULL;
+        int pt=0;
+        while(pt<k && curr!=NULL)
+        {
+            fwd=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=fwd;
+            pt++;
+        }
+        if(head!=NULL)
+        {
+            head->next= reverse(curr,k);
+        }
+        
+            return prev;
+        
+    
+        
+    }
+    
+    approach : 
+    1. reverse()
+    2. head to sublist
+    3. prev for poori list
