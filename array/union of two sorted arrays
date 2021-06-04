@@ -1,0 +1,14 @@
+  //Function to return a list containing the union of the two arrays. 
+    vector<int> findUnion(int arr1[], int arr2[], int n, int m)
+    {
+        
+        set<int> s;
+s.insert(arr1, arr1+n);
+s.insert(arr2, arr2+m);
+
+vector<int> v;
+v.assign(s.begin(), s.end());
+return v;
+
+
+    }
