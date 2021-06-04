@@ -1,0 +1,20 @@
+  bool detectLoop(Node* head)
+    {
+        // your code here
+        if(head==NULL || head->next==NULL)
+        {
+            return false;
+        }
+        Node* curr=head;
+        Node*fwd=head;
+        while(curr!=NULL && fwd!=NULL && fwd->next!=NULL)
+        {
+            curr=curr->next;
+            fwd=fwd->next->next;
+            if(curr==fwd)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
