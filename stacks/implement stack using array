@@ -1,0 +1,20 @@
+void push(struct Stack* stack, int item)
+{
+    //code here
+
+    stack->top++;
+    
+    stack->array[stack->top]=item;
+}
+
+
+//Function to remove an item from top of the stack.
+int pop(struct Stack* stack)
+{
+    //code 
+    if (isEmpty(stack))
+        return -1;
+    int item=stack->array[stack->top];
+    stack->top--;
+    return item;
+}
