@@ -1,0 +1,75 @@
+1st approach using hashing 
+
+
+#include<bits/stdc++.h>
+class Solution
+{
+    public:
+    //Function to remove a loop in the linked list.
+    void removeLoop(Node* head)
+    {
+       
+     unordered_map<Node*,int> mp;
+     Node *prev=NULL,*curr=head;
+     
+     bool flag=true;
+     while(curr!=NULL)
+     {
+         if(mp.find(curr)==mp.end())
+         {   mp[curr]++;
+             prev=curr;
+             curr=curr->next;
+         }
+         else
+         {    
+             prev->next=NULL;
+             break;
+         }
+     }
+  //curr->next=NULL;
+        
+    }
+    
+    
+    
+    2nd approach 
+    
+    using floyds cycle detection algorithm 
+    
+    
+     void removeLoop(Node* head)
+    {
+     Node *prev=head,*curr=head;
+     
+     while(prev!=NULL && curr!=NULL && curr->next!=NULL)
+     {
+         prev=prev->next;
+         curr=curr->next->next;  //floyds cycle detecting algorithm
+         if(prev==curr)
+         {
+             break;
+         }
+     }
+     
+     //corner test case
+     if(prev==head)
+     {
+         while(curr->next!=prev)
+         {
+             curr=curr->next;
+         }
+         curr->next=NULL;   //loop ki removal;
+     }
+     else
+     if(prev==curr)
+     {
+         prev=head;
+         while(prev->next!=curr->next)
+         {
+             prev=prev->next;
+             curr=curr->next;
+         }
+         curr->next=NULL;
+     }
+        
+    }
