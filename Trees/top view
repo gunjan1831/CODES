@@ -1,0 +1,29 @@
+ vector<int> topView(Node *root)
+    {
+        vector<int> ans;
+        map<int,int> mp;
+        queue<pair<Node*,int>> q;
+        q.push({root,0});
+        Node* temp=NULL;
+        while(q.empty()==false)
+        {
+         temp=q.front().first;
+            int height= q.front().second;
+            q.pop();
+            if(mp.find(height)==mp.end())
+            {
+                mp[height]=temp->data;
+            }NULL)
+            {
+                q.push({temp->left,height-1});
+            }
+            if(temp->right!=NULL)
+            {
+                q.push({temp->right,height+1});
+            }
+        }
+        
+ //at every horizontal distance.
+        for(auto it = mp.begin(); it != mp.end(); it++){
+            ans.push_back(it->second);      }  return ans;
+    }
