@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+   
+int main() {
+
+   ios::sync_with_stdio(0);
+   cin.tie(0);
+   
+   int n, k;
+  
+   cin >> n >> k;
+   vector<int> r(n+1,0);
+   vector<int> c(n+1,0);
+   int c1=0,c2=0;
+   
+
+
+   while(k--) {
+      int i, j;
+
+      cin >> i >> j;
+
+     if(r[i]==0)
+     {
+        r[i]=-1;
+        c1++;
+     }
+     if(c[j]==0)
+     {
+        c[j]=-1;
+        c2++;
+     }
+     cout<<(n-c1)*(n-c2)<<" ";
+   }
+   
+
+   return 0;
+}
