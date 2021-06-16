@@ -1,0 +1,25 @@
+void moveZeroes(struct Node **head)
+{
+   
+   
+struct Node *temp=*head,*last=*head;
+
+temp=temp->next;
+while(temp!=NULL)
+{
+    if(temp->data==0)
+    {
+        last->next=temp->next;
+        temp->next=*head;
+        *head=temp;
+        temp=last->next;
+    }
+    else
+    {
+        last=temp;
+        temp=temp->next;
+    }
+}
+}
+
+don't get confused with gfg op.
