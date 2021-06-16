@@ -1,0 +1,41 @@
+Node* merge(Node* a,Node* b)
+{
+    if(a==NULL)
+    {
+        return b;
+    }
+    if(b==NULL)
+    {
+        return a;
+    }
+    
+    if(a->data< b->data)
+    {
+        a->next=merge(a->next,b);
+        return a;
+    }
+    else
+    {
+        b->next= merge(a,b->next);
+        return b;
+    }
+}
+Node* mergeSort(Node* head) {
+    
+    
+    if(head==NULL ||head->next==NULL)
+    {
+        return head;
+    }
+
+Node*slow=head,*fast=head->next;
+
+while(fast!=NULL && fast->next!=NULL)     //Finding the middle of linked list and dividing it into 2 parts
+{
+    fast=fast->next->next;
+    slow=slow->next;
+}
+Node*nhead=slow->next;  //after loop slpw stops at mid so uska next is other half linkedlist ka head.
+slow->next=NULL;
+return merge(mergeSort(head),mergeSort(nhead)); 
+}/
