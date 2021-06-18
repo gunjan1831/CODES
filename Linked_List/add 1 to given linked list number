@@ -1,0 +1,51 @@
+
+Node* reverse(Node  *head)
+{
+    Node*prev=NULL,*curr=head,*fwd;
+    
+    while(curr!=NULL)
+    {
+        fwd=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=fwd;
+    }
+    head=prev;
+    return head;
+}
+   
+Node* addOne(Node *head) 
+{  
+    
+    //step1 reverse
+   head= reverse(head);   
+   
+   //step2 solve 
+   Node*curr=head,*prev=head;
+   
+   int sum= curr->data+1;
+   curr->data=sum%10;
+   int carry =sum/10;
+   curr=curr->next;
+   while(curr!=NULL)
+   {
+       sum = curr->data+carry;
+       curr->data=sum%10;
+       carry=sum/10;
+       prev=curr;     //for calculations like 999+1 and u need a new node to accomadate carry 
+       curr=curr->next;
+   }
+   if(carry)
+   {
+       prev->next= new Node(carry);
+   }
+   
+   head= reverse(head);
+   return head;
+
+}
+
+
+POINTS:
+1.reverse.solve.reverse
+2.corner cases 469->470 carry case ,, 999+1->1000 new node corner case.
