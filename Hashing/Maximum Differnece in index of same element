@@ -1,0 +1,24 @@
+int maxDiffIndex(int A[], int N)
+    {
+        unordered_map<int,int> mp;
+        int ans=INT_MIN;
+        for(int i=0;i<N;i++)
+        {
+            if(mp.find(A[i])==mp.end())
+            {
+                mp[A[i]]=i;
+            }
+            else
+            {
+              ans=max(ans,i-mp[A[i]]);
+            }
+        }
+        if(ans==INT_MIN)
+        {
+            return 0;
+        }
+        else
+        {
+            return ans;
+        }
+    }
