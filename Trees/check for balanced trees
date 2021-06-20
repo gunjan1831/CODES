@@ -1,0 +1,42 @@
+int height(Node* root)
+{
+    if(root==NULL)
+    {
+        return 0;
+    }
+    return 1+max(height(root->left),height(root->right));
+}
+bool isBalanced(Node *root)
+{
+    //  Your Code here
+    int a=0,b=0;
+    
+    if(root==NULL)
+    {
+        return true;
+    }
+   if(root->left!=NULL)
+   {
+       a=height(root->left);
+   }
+   if(root->right!=NULL)
+   {
+       b=height(root->right);
+   }
+   
+   if(abs(a-b)<=1  && isBalanced(root->left)==true && isBalanced(root->right)==true)
+   {
+       return true;
+   }
+   else
+   {
+       return false;
+   }
+}
+
+
+balanced tree conditions:
+
+1.left and right subtree of every node should be balanced.
+
+2. balanced means max diff of height of left subtree and right subtree should be <=1.
