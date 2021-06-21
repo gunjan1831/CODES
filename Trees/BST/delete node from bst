@@ -1,0 +1,67 @@
+Node *deleteNode(Node *root, int X)
+{ 
+    
+    //if root encounters NULL condition or base condition 
+if(root==NULL)
+{ 
+    return root;
+}
+
+
+//3 conditions to start with 
+
+if(root->data >X)
+{
+    root->left= deleteNode(root->left,X);
+}
+else
+if(root->data <X)
+{
+    root->right = deleteNode(root->right,X);
+}
+else
+{
+    if(root->left==NULL  && root->right==NULL)
+    {
+        //Node *temp=root;
+        delete root;
+        return NULL;
+    }
+    
+    if(root->left==NULL && root->right!=NULL)
+    {
+        Node *temp=root->right;
+       delete root;
+        return  temp;
+        
+    }
+    else
+    if(root->left!=NULL && root->right==NULL)
+    {
+        Node*temp=root->left;
+        delete root;
+        return temp;
+    }
+    
+    //two child condition 
+    
+    if(root->left!=NULL && root->right!=NULL)
+    {
+        Node*r=root->right;
+        
+        while(r->left!=NULL)
+        {
+            r=r->left;
+        }
+        root->data=r->data;  //min of right subtree;
+        
+        root->right=deleteNode(root->right,r->data);
+        return root;
+        
+    }
+}
+
+
+
+
+}
