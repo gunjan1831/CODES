@@ -1,0 +1,27 @@
+  void checkbst(Node*root,Node* &prev, int &flag)
+    {
+        if(root==NULL)
+        {
+            return; //bc
+        }
+        
+        //l,r,r
+        checkbst(root->left,prev,flag);
+        if(prev!=NULL && root->data<=prev->data)
+        {
+            flag=0;
+            return;
+        }
+        prev=root;
+        checkbst(root->right,prev,flag);
+    }
+    bool isBST(Node* root) 
+    {
+        //left,root,right
+        
+        //bc
+        Node*prev=NULL;
+        int flag=1;
+        checkbst(root,prev,flag);
+        return flag;
+    }
