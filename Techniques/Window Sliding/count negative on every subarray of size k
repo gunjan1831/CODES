@@ -1,0 +1,23 @@
+int count=0;
+
+while(j<N)
+{
+if(arr[j]<0)
+{
+count++;
+}
+
+if(j-i+1==K)   //subarray size check 
+{
+
+cout<<count;
+if(arr[i]<0)    removin first elemnt and its contributuion 
+{
+count--;
+}
+i++;
+}
+j++;    // adding next element and its contributuin 
+
+}
+
