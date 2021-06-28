@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+// Function to check if the
+// character is a vowel or not
+bool vowel(char ch)
+{
+    if (ch == 'a' || ch == 'e'
+        || ch == 'i' || ch == 'o'
+        || ch == 'u' || ch == 'A'
+        || ch == 'E' || ch == 'I'
+        || ch == 'O' || ch == 'U') {
+        return true;
+    }
+    return false;
+}
+ 
+// Function to find the length of
+// the longest substring that
+// doesn't contain any vowel
+int maxLengthString(string s)
+{
+    // Stores the length of
+    // the longest substring
+    int maximum = 0;
+ 
+    int count = 0;
+ 
+    // Traverse the string, S
+    for (int i = 0; i < s.length(); i++) {
+ 
+        // If the current character
+        // is vowel, set count as 0
+        if (vowel(s[i])) {
+            count = 0;
+        }
+ 
+        // If the current
+        // character is a consonant
+        else {
+ 
+            // Increment count by 1
+            count++;
+        }
+ 
+        // Update the maximum length
+        maximum = max(maximum, count);
+    }
+ 
+    // Return the result
+    return maximum;
+}
+ 
