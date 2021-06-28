@@ -1,0 +1,31 @@
+Logic :
+
+initial window sum  loop
+sum=res;
+i=K to N  second loop
+add a[i] 
+subtratc a[i-K]
+check for max.
+
+
+
+
+
+
+int maximumSumSubarray(int K, vector<int> &Arr , int N){
+        // code here 
+        
+        
+        int sum=0,res=0;
+        for(int i=0;i<K;i++)
+        {
+            res+=Arr[i];
+        }
+        sum=res;
+        for(int i=K;i<N;i++)
+        {
+            sum+=Arr[i]-Arr[i-K];
+            res=max(sum,res);
+        }
+        return res;
+    }
