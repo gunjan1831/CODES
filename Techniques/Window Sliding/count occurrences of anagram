@@ -1,0 +1,57 @@
+	int search(string pat, string txt) {
+	    
+	    
+	    int k=pat.size();
+	    int n=txt.size();
+	    int final_count=0;
+	   // int tcount=0;
+	    int j=0,i=0;
+	    
+	    unordered_map<char,int> mp;
+	    
+	    for(int i=0;i<k;i++)
+	    {
+	        mp[pat[i]]++;
+	    }
+	    i=0;
+	    int s=mp.size();
+	   
+	    while(j<n)
+	    {
+	       if(mp.find(txt[j])!=mp.end())
+	       {   
+	           mp[txt[j]]--;
+	       
+	       
+	       if(mp[txt[j]]==0)
+	       {
+	           s--;
+	       }
+	       }
+	       
+	       if(j-i+1<k)
+	       {
+	           j++;
+	       }
+	       else if(j-i+1==k)
+	       {
+	           if(s==0)
+	           {
+	               final_count++;
+	           }
+	           if(mp.find(txt[i])!=mp.end())
+	           {
+	               mp[txt[i]]++;
+	           
+	           if(mp[txt[i]]==1)
+	           {
+	               s++;
+	           }
+	           }
+	           i++;
+	           j++;
+	           
+	       }
+	    }
+	    return final_count;
+	}
