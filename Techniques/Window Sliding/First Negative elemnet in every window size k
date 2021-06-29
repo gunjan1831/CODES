@@ -1,0 +1,39 @@
+vector<long long> printFirstNegativeInteger(long long int A[],long long int N, long long int K)
+{
+                                                  
+    vector<long long> ans;
+    list<long long> t;
+    
+ long long int j=0,i=0;
+    
+    while(j<N)
+    {
+        if(A[j]<0)
+        {
+            t.push_back(A[j]);
+        }
+        if(j-i+1==K)
+        {    
+            if(t.size()==0)
+            {
+                ans.push_back(0);
+            }
+            else
+            {
+            ans.push_back(t.front());
+            }
+            if(A[i]>0)
+            {
+                i++;
+            }
+            else
+            {
+                t.pop_front();
+                i++;
+            }
+        }
+        j++;
+    }
+
+      return ans;                                           
+ }
