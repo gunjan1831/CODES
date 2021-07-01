@@ -26,3 +26,18 @@ p=p->next;
 p->next=NULL;
 }
 
+3.solution
+
+void deleteNode(Node *del)
+    {
+       Node*temp=del,*prev=NULL;
+       while(temp->next!=NULL)
+       {
+           temp->data=temp->next->data;
+           prev=temp;
+           temp=temp->next;
+       }
+       prev->next=NULL;
+       
+    }
+
