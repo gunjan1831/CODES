@@ -1,0 +1,89 @@
+Solution 1 : Using Hashing 
+
+int intersectPoint(Node* head1, Node* head2)
+{
+    // Your Code Here
+    
+    unordered_map<Node*,int> mp;
+    
+    Node*curr1=head1,*curr2=head2;
+    
+    while(curr1!=NULL)
+    {
+        mp[curr1]++;
+        curr1=curr1->next;
+    }
+    
+    while(curr2!=NULL)
+    {
+        if(mp.find(curr2)!=mp.end())
+        {
+            return curr2->data;
+        }
+        curr2=curr2->next;
+    }
+    return -1;
+}
+
+Solution 2 : Using difference of both linked list and not using any sort of extra space. 
+
+LOGIC: 
+Delete the difference between two nodes by making the diff gap then when both the linked list have same size then start looking for curr1==curr2
+if not found send -1;
+
+
+
+int getcount(Node * head)
+{
+    if(head==NULL)
+    {
+        return 0;
+    }
+    return getcount(head->next)+1;
+}
+int intersectPoint(Node* head1, Node* head2)
+{
+   int c1=getcount(head1);
+   int c2=getcount(head2);
+   Node*curr1=head1,*curr2=head2;
+   if(c1>=c2)
+   {
+       int d=c1-c2;
+        for(int i=0;i<d;i++)
+      { 
+          if(curr1==NULL)
+          {
+              return -1;
+          }
+       curr1=curr1->next;
+      }
+   
+    }
+    else
+    {
+        int d1=c2-c1;
+        for(int i=0;i<d1;i++)
+      {
+          
+          if(curr2==NULL)
+          {
+              return -1;
+          }
+       curr2=curr2->next;
+      }
+        
+    }
+  
+   
+   
+   while(curr1!=NULL && curr2!=NULL)
+   {
+       if(curr1==curr2)
+       {
+           return curr1->data;
+       }
+       curr1=curr1->next;
+       curr2=curr2->next;
+   }
+  // return -1;
+}
