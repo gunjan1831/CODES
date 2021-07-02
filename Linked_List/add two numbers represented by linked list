@@ -1,0 +1,94 @@
+LOGIC:
+reverse both nums 
+solve 
+reverse
+take care of links and carry of all 3 cases
+3 cases 
+1.curr1 && curr2==NULL
+2.curr1!=NULL && curr2==NULL
+3.curr1==NULL && curr2!=NULL
+
+
+
+//Function to add two numbers represented by linked list.
+      struct Node* reverse(struct Node* head)
+    {
+        struct Node*curr=head,*fwd,*prev=NULL;
+        
+        while(curr!=NULL)
+        {
+            fwd=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=fwd;
+        }
+        head=prev;
+        return head;
+    }
+    struct Node* addTwoLists(struct Node* first, struct Node* second)
+    {
+       first=reverse(first);
+       second=reverse(second);
+       
+       Node*curr1=first,*curr2=second,*prev=NULL;
+       int carry=0;
+       
+       while(curr1!=NULL && curr2!=NULL)
+       {
+           int sum=curr1->data + curr2->data +carry;
+           curr2->data = sum%10;
+           carry=sum/10;
+           curr1=curr1->next;
+           prev=curr2;
+           curr2=curr2->next;
+       }
+       
+       if(curr1!=NULL && curr2==NULL)
+       {
+           while(curr1!=NULL)
+           {
+               int s=curr1->data+carry;
+               prev->next =new Node(s%10);
+               carry=s/10;  
+               prev=prev->next;
+               curr1=curr1->next;
+           }
+           
+           if(carry!=0)
+           {
+               prev->next= new Node(carry);
+           }
+          
+       }
+       
+       if(curr2!=NULL && curr1==NULL)
+       {
+           while(curr2!=NULL)
+           {
+               int sm=curr2->data + carry;
+               curr2->data=sm%10;
+               carry=sm/10;
+               prev=curr2;
+               curr2=curr2->next;
+           }
+           
+           if(carry!=0)
+           {
+               prev->next=new Node(carry);
+               
+           }
+         
+       }
+       
+       // what is both curr2 and curr1 is null but there is a carray like in case of :9, 9
+       if(carry!=0)
+           {
+               prev->next=new Node(carry);
+           }
+       
+       // prev is pointing to the last element of the linkedlist ,you should return second( first element of curr2 ) after reversing it
+       second = reverse(second);
+       return second;
+       
+    }
+    
