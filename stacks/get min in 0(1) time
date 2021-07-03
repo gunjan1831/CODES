@@ -1,0 +1,58 @@
+void push(stack<int>& s, int a){
+  if(s.size()==0)
+  {
+      s.push(a);
+  }
+  else
+  {
+      int t=s.top();
+      s.pop();
+      int q=max(a,t);
+      int r=min(a,t);
+      s.push(q);
+      s.push(r);
+  }
+}
+
+Note:
+Keep checking with top while pushing in  such a way that top always remains minimum 
+which makes your getmin() also in constant time complexity i.e o(1).
+
+
+
+
+bool isFull(stack<int>& s,int n){
+	// Your code goes here
+	if(s.size()==n)
+	{
+	    return true;
+	}
+	return false;
+}
+
+bool isEmpty(stack<int>& s){
+	// Your code goes here
+	if(s.empty()==true)
+	{
+	    return true;
+	}
+	return false;
+}
+
+int pop(stack<int>& s){
+	// Your code goes here
+	if(s.empty()==true)
+	{
+	    return -1;
+	}
+	else
+	{
+	    int a=s.top();
+	    s.pop();
+	    return a;
+	}
+}
+
+int getMin(stack<int>& s){
+	return s.top();
+}
