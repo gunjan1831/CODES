@@ -1,0 +1,22 @@
+char* reverse(char *S, int len)
+{
+   stack<char> s;
+   char *ans = new char[len+1];
+   for(int i=0;i<len;i++)
+   {
+       s.push(S[i]);
+   }
+  for(int i=0;i<len;i++)
+  {
+      ans[i]=s.top();
+      s.pop();
+  }
+  ans[len]='\0';
+  return ans;
+}
+
+
+Note :
+you have to add null character '\0' at the end of new character array to tell its
+the end of that string.So you have to create array of size len+1 and assign the 
+value ans[len]='\0'.thank you.
