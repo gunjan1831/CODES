@@ -1,0 +1,16 @@
+	void merge(int arr1[], int arr2[], int n, int m) {
+	    
+	  int j=0,i=n-1;
+	  while(j<m && i>-1 && arr2[j]<arr1[i])
+	  {
+	      swap(arr1[i--],arr2[j++]);
+	     
+	  }
+	  sort(arr1,arr1+n);
+	  sort(arr2,arr2+m);
+	} 
+  tc: o(m+n) sc: o(1)
+  
+  
+  solution 2 : 
+  we could use gap method also, shell sort
