@@ -1,0 +1,25 @@
+find the sum for num and den and then divivde both sides by their gcd.
+
+
+gcd(int a,int b)
+{
+    if(b==0)
+    {
+        return a;
+    }
+    else
+    {
+        return gcd(b,a%b);
+    }
+}
+void addFraction(int num1, int den1, int num2,int den2)
+{
+   
+   int a=den1*den2;
+   int b=num1*den2;
+   int c=num2*den1;
+   int n=b+c;
+   int g=gcd(n,a);
+   cout<<n/g<<"/"<<a/g<<"\n";
+   
+ }
