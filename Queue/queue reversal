@@ -1,0 +1,20 @@
+//Function to reverse the queue.
+queue<int> rev(queue<int> q)
+{
+    // add code here.
+    stack<int> s;
+    queue<int> k;
+   while(q.empty()==false)
+   {
+        s.push(q.front());
+        q.pop();
+        
+    }
+    
+    while(s.empty()==false)
+    {
+        k.push(s.top());
+        s.pop();
+    }
+    return k;
+}
