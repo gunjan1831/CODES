@@ -1,0 +1,41 @@
+traverse from right to left 
+for every element if top of stack is less or equal pop 
+till stack is empty and top is less or equal 
+then if stack is empty go for -1 or else ans for that particular element is top . 
+
+corner case 
+last ke liye its always -1 because no element in right.
+  
+  
+  
+  vector<long long> nextLargerElement(vector<long long> arr, int n){
+        // Your code here
+        stack<long long> s;
+        //ans[n-1]=-1;
+        s.push(arr[n-1]);
+        vector<long long> ans(n,0);
+        ans[n-1]=-1;
+        
+        for(int i=n-2;i>=0;i--)
+        {
+           
+            while(s.empty()==false  && s.top()<=arr[i])
+            {
+                
+                    s.pop();
+                
+            }
+             if(s.empty()==true)
+            {
+                ans[i]=-1;
+                s.push(arr[i]);
+            }
+            else
+            {
+                ans[i]=s.top();
+                s.push(arr[i]);
+            }
+            
+        }
+        return ans;
+    }
