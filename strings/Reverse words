@@ -1,0 +1,12 @@
+Python
+def reverseWords(self,S):
+        # code here 
+        
+       
+        l=list(S.split("."))
+        l.reverse()
+        s="."
+        s=s.join(l);
+        return s
+
+C++
