@@ -1,15 +1,35 @@
-int f=1;
-int solve(Node *root){
-if(!root)return 0;
-if(!root->left and !root->right){return root->data;}
-if(f==0)return 0;
-int a = solve(root->left);
-int b = solve(root->right);
-if(root->data!=a+b)f=0;
-return root->data+a+b;
-}
-bool isSumTree(Node* root)
-{ f=1;
-solve(root);
-return f;
-}
+ int f=1;  //globally declared.
+  
+  int solve(Node* root)
+  {
+      //corner case1
+      if(root==NULL)
+      {
+          return 0;
+      }
+      
+      //corner case2  leaf node we want value to check only we don't want to change the value
+      if(root->left==NULL && root->right==NULL)
+      {
+          return root->data;
+      }
+      if(f==0)
+      {
+          return 0;//check before applying last time ka
+      }
+      
+      int a=solve(root->left);
+      int b=solve(root->right);
+      if(root->data !=a+b)
+      {
+          f=0; //isko check krega next iteration ya call mei;
+      }
+      return root->data+a+b; // for next sum++;
+      
+  }
+  bool isSumTree(Node* root)
+  { 
+    f=1;
+    solve(root);
+    return f;
+  }
