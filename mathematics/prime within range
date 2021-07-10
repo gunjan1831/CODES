@@ -1,0 +1,40 @@
+
+#include <iostream>
+#include<math.h>
+using namespace std;
+
+
+
+bool prime(int a)
+{   
+    int count=1;
+    for(int i=1;i<=sqrt(a);i++)
+    {
+        if(a%i==0)
+        {
+            count++;
+            //break;
+        }
+    }
+    if(count==2)
+    {
+        return true;
+    }
+    else
+    {
+    return false;
+    }
+}
+
+int main()
+{
+   int n;
+   cin>>n;
+   for(int i=2;i<=n;i++)
+   {
+       if(prime(i)==true)
+       {
+           cout<<i<<" ";
+       }
+   }
+}
