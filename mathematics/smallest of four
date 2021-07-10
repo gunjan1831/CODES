@@ -1,0 +1,14 @@
+#include <iostream>
+#include<math.h>
+using namespace std;
+
+
+
+
+int main()
+{
+   int a,b,c,d;
+   cin>>a>>b>>c>>d;
+   int ans= a<b && a<c && a<d? a:b<c&&b<d?b:c<d?c:d;
+   cout<<ans;
+}
