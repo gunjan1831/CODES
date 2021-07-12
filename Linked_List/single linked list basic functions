@@ -1,146 +1,10 @@
-#include<iostream>
-using namespace std;
-
-struct Node
-{
-    int data;
-    struct Node *next;
-};
-
-struct Node *head = NULL;
-
-void push_back(int value)
-{
-    Node *last = head;
-    Node *newnode = new Node;
-    newnode->data = value;
-    newnode->next = NULL;
-    
-    if(head == NULL)
-        head = newnode;
-    else
-    {
-        while(last->next != NULL)
-            last = last->next;
-            
-        last->next = newnode;
-    }
-}
-
-void push_front(int value)
-{
-    Node *newnode = new Node;
-    newnode->data = value;
-    newnode->next = head;
-    head = newnode;
-}
-
-void printList()
-{
-    Node *temp = head;
-    if(head == NULL)
-    {
-      cout <<"Linked list is empty.";
-    }
-  else
-  {
-    while(temp != NULL)
-    {
-        cout << temp->data << " ";
-        temp = temp->next;
-    }
-    cout << endl;
-  }
-}
-
-int pop_front()
-{
- 	if(head == NULL)
-    {
-      return -1;
-      
-    } 
-  
-    Node *temp = head;
-    int element = temp->data;
-    head = temp->next;
-    delete(temp);
-    return element;
-}
-
-int pop_back()
-{
-    Node *temp = head;
-    int element;
-    if(head->next == NULL)
-    {
-        element = head->data;
-        head = NULL;
-        return element;
-    }
-    while(temp->next->next != NULL)
-    {
-        temp = temp->next;
-    }
-    element = temp->next->data;
-    temp->next = NULL;
-    delete(temp->next);
-    return element;
-}
-int main()
-{
-    int choice;
-    while(1)
-    {
-        cin >> choice;
-        if(choice == 1)
-        {
-            int x;
-            cout <<"Enter value of element\n";
-            cin >> x;
-            push_front(x);
-        }
-        else if(choice == 2)
-        {
-            int x;
-            cout <<"Enter value of element\n";
-            cin >> x;
-            push_back(x);
-        }
-        else if(choice == 3)
-        {
-            printList();
-        }
-        else if(choice == 4)
-        {
-            int x = pop_front();
-            if(x != -1)
-            cout << x <<" deleted from beginning successfully.\n";
-            else
-            cout <<"Linked list is empty.";
-        }
-        else if(choice == 5)
-        {
-            int x = pop_back();
-            cout << x <<" deleted from end successfully.\n";
-        }
-        else
-        {
-            break;
-        }
-    }
-}
-
-
-mycode
-
 #include <iostream>
-#include<bits/stdc++.h>
 using namespace std;
+
 
 class Node
-{ 
-  public:
+{
+ public:
   int data;
   Node* next;
   
@@ -150,33 +14,43 @@ class Node
     next=NULL;
   }
 };
-
+Node* head=NULL;
 void insertfront(Node* &head,int x)
 {
   Node* t=new Node(x);
+  
   t->next=head;
   head=t;
+  
 }
+
 void insertback(Node* &head,int x)
 {
+  Node*t= new Node(x);
+  Node* temp=head;
   if(head==NULL)
   {
-   insertfront(head,x);
-    return;
+    head=t;
+    
   }
-  Node* t=new Node(x);
-  Node*temp=head;
+  else
+  {
   while(temp->next!=NULL)
   {
     temp=temp->next;
   }
   temp->next=t;
+  }
 }
-
 
 void display(Node* head)
 {
   Node* temp=head;
+  
+  if(head==NULL)
+  {
+    cout<<"Linked list is empty.";
+  }
   while(temp!=NULL)
   {
     cout<<temp->data<<" ";
@@ -184,75 +58,87 @@ void display(Node* head)
   }
   cout<<"\n";
 }
-void deletefront(Node* head)
+
+int deletefront(Node* &head)
 {
-  Node* t=head;
-  
-  head=head->next;
-  cout<<t->data<<" deleted from beginning successfully."<<"\n";
-  delete(t);
-}
-void deleteback(Node* &head)
-{  
-  
   if(head==NULL)
   {
-    return;
+    return -1;
   }
-  
- if(head->next==NULL)
+  Node*temp=head;
+  int a=temp->data;
+  head=temp->next;
+  delete(temp);
+  return a;
+}
+
+int deleteback(Node* &head)
+{
+  if(head==NULL)
   {
-    
-     cout<<head->data<<" deleted from end successfully."<<"\n";
-     delete(head);
-    //head=NULL;
-     
-    
-    return;
+    return -1;
   }
-  Node* temp=head,*prev=NULL;
+  if(head->next==NULL)
+  {
+    return deletefront(head);
+  }
+  Node*temp=head,*prev=NULL;
   while(temp->next!=NULL)
-  { 
+  {
     prev=temp;
     temp=temp->next;
   }
-  Node* c= temp;
   prev->next=NULL;
-  cout<<c->data<<" deleted from end successfully."<<"\n";
-  delete(c);
+   int b=temp->data;
+  delete(temp);
+  return b;
   
 }
+
+
 int main() 
-{
-  int t=6;
-  Node* head=NULL;
- while(t--)
- {
-   int op;
-   cin>>op;
-   int k;
-   switch(op)
-   {
-     case 1: cout<<"Enter value of element\n";
-             //int k;
-             cin>>k;
-             insertfront(head,k);
-             break;
-     case 2: cout<<"Enter value of element\n";
-             //int k;
-             cin>>k;
-             insertback(head,k);
-             break;
-     case 3:display(head);
+{   
+    
+    int choice;
+    while(1)
+    {
+        cin >> choice;
+        if(choice == 1)
+        {
+            int x;
+            cout <<"Enter value of element\n";
+            cin >> x;
+            insertfront(head,x);
+        }
+        else if(choice == 2)
+        {
+            int x;
+            cout <<"Enter value of element\n";
+            cin >> x;
+            insertback(head,x);
+        }
+        else if(choice == 3)
+        {
+            display(head);
+        }
+        else if(choice == 4)
+        {
+            int x = deletefront(head);
+            if(x != -1)
+            cout << x <<" deleted from beginning successfully.\n";
+            else
+            cout <<"Linked list is empty.";
+        }
+        else if(choice == 5)
+        {
+            int x = deleteback(head);
+            cout << x <<" deleted from end successfully.\n";
+        }
+        else
+        {
             break;
-     case 4:deletefront(head);
-            break;
-     case 5:deleteback(head);
-            break;
-     case 6: exit(0);
-             break;
-   }
- }
-  
-    return 0;
+        }
+    }
+      return 0;
+    
 }
