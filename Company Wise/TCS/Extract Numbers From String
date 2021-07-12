@@ -46,3 +46,41 @@ int main()
   }
   return 0;
 }
+
+
+
+
+Solution function based
+
+long long ExtractNumber(string str)
+    {
+        long long res = -1;
+        
+        for(int i = 0; i < str.size(); i++)
+        {
+            if(isdigit(str[i]))
+            {
+                bool flag = true;
+                long long num = 0;
+                
+                while(i < str.size() and isdigit(str[i]))
+                {
+                    if(str[i] == '9')
+                    {
+                        flag = false;
+                    }
+                    
+                    num = num * 10 + (str[i] - '0');
+                    
+                    i++;
+                }
+                
+                if(flag)
+                {
+                    res = max(res, num);
+                }
+            }
+        }
+        
+        return res;
+    }
