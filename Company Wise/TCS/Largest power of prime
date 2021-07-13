@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+  int t;
+  cin>>t;
+  while(t--)
+  {
+    int num,p;
+    cin>>num>>p;
+    int x=0;
+    while(num!=0)
+    {
+      num=num/p;
+      x+=num;
+    }
+    cout<<x<<"\n";
+  }
+    return 0;
+}
+
+ques says 10!/2^n 
+what is the value of n 
+
+value of n is equal to sum of n/2 value till n/2>-1
