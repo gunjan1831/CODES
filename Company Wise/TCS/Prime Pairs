@@ -1,0 +1,113 @@
+There is a range given n and m in which we have to find the count all the prime pairs whose difference is 6. We have to find how many sets are there within a given range.
+
+
+
+Output:
+
+Output consists of single line, print the count prime pairs in given range. Else print"No Prime Pairs".
+
+
+
+constraints:
+
+2<=n<=1000
+
+n<=m<=2000
+
+
+
+Sample Input:
+
+4
+
+30
+
+
+
+Output:
+
+6
+
+
+
+Explanation:
+
+(5, 11) (7, 13) (11, 17) (13, 19) (17, 23) (23, 29) . we have 6 prime pairs.
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+
+bool isprime(int a)
+{
+if(a==1 || a==0)
+{
+  return false;
+}
+  int count=1;
+    for(int i=1;i<=sqrt(a);i++)
+    {
+        if(a%i==0)
+        {
+            count++;
+            //break;
+        }
+    }
+    if(count==2)
+    {
+        return true;
+    }
+    else
+    {
+    return false;
+    }
+}
+int main() 
+{
+   int l,r;
+  cin>>l>>r;
+  int count=0;
+ bool arr[r+1];
+  for(int i=0;i<r+1;i++)
+  {
+arr[i]=false;
+  }
+  for(int i=l;i<=r;i++)
+  {
+    if(isprime(i)==true)
+    {
+      arr[i]=true;
+      count++;
+    }
+  }
+  int lll[count+1];
+  int k=0;
+  for(int i=0;i<r+1;i++)
+  {
+    if(arr[i]==true)
+    {
+      lll[k++]=i;
+    }
+  }
+  int ans=0;
+  for(int i=0;i<count;i++)
+  {
+    for(int j=i+1;j<count;j++)
+    {
+      if(lll[j]-lll[i]==6)
+      {
+        ans++;
+      }
+    }
+  }
+  if(ans==0)
+  {
+cout<<"No Prime Pairs";
+  }
+  else
+  {
+  cout<<ans;
+  }
+    return 0;
+}
