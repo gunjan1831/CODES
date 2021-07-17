@@ -1,0 +1,8 @@
+	int NthRoot(int n, int m)
+	{
+	    // Code here.
+	    int k = round( pow(m,1.0/n));
+if(pow(k,n)==m)
+return k;
+return -1;
+	}  
