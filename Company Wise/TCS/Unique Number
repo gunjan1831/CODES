@@ -1,0 +1,92 @@
+LOGIC: no of digits in each digit should be unique!
+
+Unique Number
+Write a program to find the count of numbers which consists of unique digits.
+
+
+
+Input:
+
+Input consist of two Integer lower and upper value of an range
+
+
+
+Output:
+
+Output consists of single line, print the count of unique digits in given range. Else Print"No Unique Number"
+
+
+
+Sample Input:
+
+10
+
+15
+
+
+
+Ouput:
+
+5
+
+
+
+LOGIC: number of digits in each digit should be unique!
+
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+ int a,b;
+  cin>>a>>b;
+  
+ 
+int arr[10];
+  
+  int count=0;
+  for(int i=a;i<=b;i++)
+  {
+    int n=i;
+   // cout<<n;
+     for(int j=0;j<10;j++)
+  {
+    arr[j]=1;
+  }
+   int rem=0;
+    bool flag=true;
+    while(n>0)
+    {
+       rem=n%10;
+      if(arr[rem]==1)
+      {
+        arr[rem]=0;
+        //count++;
+      }
+      else
+      {
+        flag=false;
+        break;
+      }
+      n=n/10;
+    }
+    //cout<<flag<<" ";
+    if(flag==true)
+    {
+    count++;
+    }
+    
+  }
+  if(count==0)
+  {
+    cout<<"No Unique Number";
+  }
+  else
+  {
+  cout<<count;
+  }
+    return 0;
+}
