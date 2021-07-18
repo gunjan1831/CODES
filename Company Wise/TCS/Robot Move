@@ -1,0 +1,38 @@
+Robot Move
+A Robot wants to move through a cave grid of size M x N. (M- Rows N- Columns). It starts from (0,0) and destination is (M-1,N-1). It can only move right or down. Calculate the total number of ways robot can reach the destination.
+
+
+
+sample Input:
+
+5 5
+
+
+
+Output:
+
+70
+
+
+
+CODE
+#include <iostream>
+using namespace std;
+int moves(int cr,int cc,int fr,int fc)
+{
+  if(fr==cr && fc==cc)
+  {
+    return 1; //base condition
+  }
+  if(cr>fr ||cc>fc)
+  {
+    return 0;
+  }
+  return moves(cr,cc+1,fr,fc) +  moves(cr+1,cc,fr,fc);
+}
+int main() 
+{
+  int r,c;
+  cin>>r>>c;
+  cout<<moves(1,1,r,c);
+}
