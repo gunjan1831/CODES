@@ -1,4 +1,5 @@
- string longestCommonPrefix (string arr[], int N)
+ Good question 
+string longestCommonPrefix (string arr[], int N)
     {
         int mi=INT_MAX;
         string c=arr[0];
@@ -36,4 +37,33 @@
             return ansy;
         }
         
+    }
+
+
+
+
+better solution 
+string longestCommonPrefix (string arr[], int N)
+    {
+          int i,j;
+      sort(arr,arr+N);
+        
+        string s1=arr[0];
+        string s2=arr[N-1];
+        string ans="";
+       for(int i=0; i<min(s1.size(),s2.size()); i++)
+        {
+            if(s1[i]==s2[i])
+            {
+                ans+=s1[i];
+            
+            }
+            else
+            {
+                break;
+            }
+        }
+         if(ans=="")
+        return "-1";
+        return ans;
     }
