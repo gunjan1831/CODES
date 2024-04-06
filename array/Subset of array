@@ -1,0 +1,40 @@
+My solution 
+
+string isSubset(int a1[], int a2[], int n, int m) {
+    map <int,int> mp;
+    map <int,int> mp2;
+    int counter =0 ;
+    for (int i =0; i<n;i++)
+    {
+        mp[a1[i]]++;
+        
+    }
+    for(int j=0;j<m;j++)
+    {
+       mp2[a2[j]]++;
+    }
+    
+    for (int i= 0 ;i<m;i++)
+    {
+        if(mp[a2[i]]>=mp2[a2[i]] and mp.find(a2[i])!=mp.end())
+        {
+            counter++;
+        }
+    }
+    
+    if(counter==m)
+    {
+        return "Yes";
+    }
+    else
+    {
+        return "No";
+        
+    }
+    
+}
+
+
+alternative solution 
+
+sort both arrays and give a while loop 
